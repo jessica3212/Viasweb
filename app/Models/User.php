@@ -22,6 +22,7 @@ class User extends Authenticatable
      * The attributes that are mass assignable.
      *
      * @var string[]
+     *
      */
     protected $fillable = [
         'name',
@@ -58,4 +59,10 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    // relacion uno muchos buzon
+    public function buzon()
+    {
+        return $this->hasMany(buzon::class);
+    }
 }
