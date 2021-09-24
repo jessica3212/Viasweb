@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ViaController;
+use App\Http\Livewire\ProjectComponent;
+use App\Http\Livewire\ShowVia;
 use App\Http\Livewire\ViasTable;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +18,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-// Route::get('/vias', ViasTable::class)->name('vias');
 
-Route::get('vias', ViasTable::class)->name('vias');
+Route::resource('biblioteca/vias', ViaController::class)->names('vias');
+
+Route::get('proyectos', ProjectComponent::class)->name('proyectos');

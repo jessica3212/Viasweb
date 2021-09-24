@@ -23,41 +23,47 @@ class ViasTable extends Model
     // relacion uno a uno pr
     public function pr()
     {
-        return $this->hasOne(pr::class);
+        return $this->belongsTo(pr::class);
     }
     // relacion uno a uno ubicacion
     public function ubicacion()
     {
-        return $this->hasOne(ubicacion::class);
+        return $this->belongsTo(ubicacion::class);
     }
     // relacion uno a uno vias pavimentadas
     public function vias_pavimentada()
     {
-        return $this->hasOne(vias_pavimentada::class);
+        return $this->belongsTo(vias_pavimentadas::class);
     }
     // relacion uno a uno vias afirmada
-    public function afirmada()
+    public function vias_afirmado()
     {
-        return $this->hasOne(vias_afirmada::class);
+        return $this->belongsTo(vias_afirmada::class);
     }
     // relacion uno a uno vias tierra
     public function vias_tierra()
     {
-        return $this->hasOne(vias_tierra::class);
+        return $this->belongsTo(vias_tierra::class);
     }
     // relacion uno a uno vias mejoramiento
     public function vias_mejoramiento()
     {
-        return $this->hasOne(vias_mejoramiento::class);
+        return $this->belongsTo(vias_mejoramiento::class);
     }
-    // relacion uno a uno pr
-    public function via_inicio()
+    // relacion uno a uno inicio
+    public function vias_inicio()
     {
-        return $this->hasOne(via_inicio::class);
+        return $this->belongsTo(via_inicio::class);
     }
-    // relacion uno a uno pr
-    public function via_fin()
+    // relacion uno a uno fin
+    public function vias_fin()
     {
-        return $this->hasOne(via_fin::class);
+        return $this->belongsTo(via_fin::class);
+    }
+
+    // URL AMIGABLE
+    public function getRouteKeyName()
+    {
+        return 'codigo_via';
     }
 }

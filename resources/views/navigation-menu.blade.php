@@ -102,11 +102,11 @@
                             {{ __('Biblioteca') }}
                         </div>
 
-                        <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                        <x-jet-dropdown-link href="">
                             {{ __('Plan Vial') }}
                         </x-jet-dropdown-link>
                         <div class="border-t border-gray-100"></div>
-                        <x-jet-dropdown-link href="{{ route('vias') }}">
+                        <x-jet-dropdown-link href="{{ route('vias.index') }}">
                             {{ __('Inventario Vial') }}
                         </x-jet-dropdown-link>
 
@@ -139,31 +139,11 @@
                     </x-slot>
                 </x-jet-dropdown>
 
-                <x-jet-dropdown>
-                    <x-slot name="trigger">
-                        <div class="flex justify-between h-16">
-                            <div class="flex">
-                                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                    <button
-                                        class="inline-flex items-center px-1 pt-1 border-b-2  text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition">
-                                        {{ __('Banco de Proyectos') }}
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </x-slot>
-                    <x-slot name="content">
-
-                        <div class="block px-4 py-2 text-xs text-gray-400">
-                            {{ __('Banco de Proyectos') }}
-                        </div>
-
-                        <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                            {{ __('Inversión') }}
-                        </x-jet-dropdown-link>
-
-                    </x-slot>
-                </x-jet-dropdown>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('proyectos') }}" :active="request()->routeIs('proyectos')">
+                        {{ __('Banco de Proyectos') }}
+                    </x-jet-nav-link>
+                </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('acercade') }}" :active="request()->routeIs('acercade')">
