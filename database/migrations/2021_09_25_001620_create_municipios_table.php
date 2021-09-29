@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePrsTable extends Migration
+class CreateMunicipiosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreatePrsTable extends Migration
      */
     public function up()
     {
-        Schema::create('prs', function (Blueprint $table) {
+        Schema::create('municipios', function (Blueprint $table) {
             $table->id();
-            $table->double('inicial');
-            $table->double('final');
+            $table->string('nombre');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreatePrsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prs');
+        Schema::dropIfExists('municipios');
     }
 }

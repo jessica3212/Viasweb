@@ -18,8 +18,8 @@ class CreateContratoProyectosTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('url_file');
-            $table->enum('estado', [contrato_proyectos::APROBADO,contrato_proyectos::DESAPROBADO])->default(contrato_proyectos::APROBADO);
-           
+            $table->enum('estado', [contrato_proyectos::APROBADO,contrato_proyectos::DESAPROBADO,contrato_proyectos::PENDIENTE])->default(contrato_proyectos::PENDIENTE);
+            $table->enum('tipo', [contrato_proyectos::PROYECTO,contrato_proyectos::CONTRATO]);
             $table->unsignedBigInteger('via_id');
             $table->foreign('via_id')->references('id')->on('vias_tables');
 

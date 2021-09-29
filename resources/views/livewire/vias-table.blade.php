@@ -15,7 +15,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-
+         
             <x-jet-form-section submit="save" class="mb-6">
                 <x-slot name="title">
                     FORMULARIO PARA INVENTARIO
@@ -263,7 +263,6 @@
                     </x-jet-button>
                 </x-slot>
             </x-jet-form-section>
-
 
 
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">

@@ -10,8 +10,13 @@ class contrato_proyectos extends Model
 {
     use HasFactory;
     protected $guarded =['id','created_at','updated_at'];
-    const APROBADO=1;
-    const DESAPROBADO=0;
+
+    const PENDIENTE=1;
+    const APROBADO=2;
+    const DESAPROBADO=3;
+
+    const PROYECTO=1;
+    const CONTRATO=2;
 
     
 
