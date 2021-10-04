@@ -9,9 +9,20 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <div>
-                <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+           
+                <div>
+                    <x-jet-label for="name" value="{{ __('Name') }}" />
+                    <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                </div>
+    
+                <div class="mt-4">
+                    <x-jet-label for="apellido" value="{{ __('Apellido') }}" />
+                    <x-jet-input id="apellido" class="block mt-1 w-full" type="text" name="apellido" :value="old('apellido')" required autofocus autocomplete="apellido" />
+                </div>
+
+            <div class="mt-4">
+                <x-jet-label for="documento" value="{{ __('Documento') }}" />
+                <x-jet-input id="documento" class="block mt-1 w-full" type="text" name="documento" :value="old('documento')" required autofocus autocomplete="documento" />
             </div>
 
             <div class="mt-4">

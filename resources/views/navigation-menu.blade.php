@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 ">
+<nav x-data="{ open: false }" class="bg-gradient-to-r from-teal-500 to-gray-200 border-b border-gray-100 ">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -204,7 +204,7 @@
 
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2" viewBox="0 0 24 24"
-                                    class="h-8 w-8 rounded-full object-cover text-gray-600">
+                                    class="h-8 w-8 rounded-full object-cover text-gray-100">
                                     <path
                                         d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
                                     </path>

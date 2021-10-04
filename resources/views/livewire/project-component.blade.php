@@ -7,24 +7,96 @@
                 </path>
             </svg>
             <h2 class="ml-4 text-xl text-gray-800 leading-tight uppercase">
-                PROYECTOS
+                ARCHIVO DE CONTRATOS Y PROYECTOS
             </h2>
         </div>
     </x-slot>
 
+
+
+
     <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
-                <fieldset class="space-y-1 text-gray-500 m-4">
+            <x-jet-form-section submit="save" class="mb-6">
+                <x-slot name="title">
+                    Subir un Nuevo Archivo
+                </x-slot>
 
-                    <input type="file" name="files" id="files"
-                        class="w-full px-8 py-12 border-2 border-dashed rounded-md border-gray-300 text-gray-600 bg-gray-100">
+                <x-slot name="description">
+                    Complete la información necesaria para poder subir un nuevo archivo.
+                </x-slot>
 
-                </fieldset>
+                <x-slot name="form">
 
-            </div>
+                    <div class="col-span-6 sm:col-span-3">
+                        <x-jet-label>
+                            NOMBRE
+                        </x-jet-label>
+                        <x-jet-input type="text" class="w-full" />
+                        <x-jet-input-error for="createForm.nombre_via" />
+                    </div>
 
+                    <div class="col-span-6 sm:col-span-3">
+                        <x-jet-label>
+                            TIPO
+                        </x-jet-label>
+                        <x-jet-input type="radio" name="type" class="my-3" />
+                        Proyecto
+                        <x-jet-input type="radio" name="type" class="my-3 ml-6" />
+                        Contrato
+                    </div>
+
+                    <div class="col-span-6 sm:col-span-6">
+                        <x-jet-label>
+                            ESTADO
+                        </x-jet-label>
+                        <x-jet-input type="radio" name="estado" class="my-3" />
+                        Pendiente
+                        <x-jet-input type="radio" name="estado" class="my-3 ml-6" />
+                        Aprobado
+                        <x-jet-input type="radio" name="estado" class="my-3 ml-6" />
+                        Desaprobado
+                    </div>
+
+                    <div class="col-span-6 sm:col-span-3">
+                        <x-jet-label>
+                            VIA
+                        </x-jet-label>
+                        <select
+                            class="w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
+                            wire:model="category_id">
+                            <option value="" selected disabled>Seleccione una categoría</option>
+
+                            <option value="1">Via 1</option>
+                            {{-- @foreach ($vias as $via)
+                            <option value="{{ $via->id }}">{{ $via->nombre_via }}</option>
+                            @endforeach --}}
+                        </select>
+                    </div>
+
+                    <div class="col-span-6 sm:col-span-4">
+
+                        <fieldset class="w-full space-y-1 text-gray-100">
+                            <div class="flex">
+                                <input type="file" name="files" id="files"
+                                    class="px-8 py-12 border-2 border-dashed rounded-md border-gray-700 text-gray-400 bg-gray-100 w-full">
+                            </div>
+                        </fieldset>
+
+                        <x-jet-input-error for="createForm.image" />
+                    </div>
+
+                </x-slot>
+
+                <x-slot name="actions">
+                    <x-jet-button>
+                        Agregar
+                    </x-jet-button>
+                </x-slot>
+
+
+            </x-jet-form-section>
 
 
             <div class="bg-white overflow-hidden shadow-md sm:rounded-lg my-7">
@@ -35,7 +107,7 @@
                         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                 <table class="min-w-full divide-y divide-gray-200">
-                                    <thead class="bg-gradient-to-r from-orange-500 to-orange-800 text-white">
+                                    <thead class="bg-gradient-to-r from-teal-500 to-blue-800 text-white">
                                         <tr>
                                             <th scope="col"
                                                 class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
@@ -76,13 +148,13 @@
             </div>
 
 
-            
+
 
 
 
         </div>
     </div>
 
-   
+
 
 </div>
