@@ -17,38 +17,11 @@
                     </x-jet-nav-link>
                 </div>
 
-                <x-jet-dropdown>
-                    <x-slot name="trigger">
-                        <div class="flex justify-between h-16">
-                            <div class="flex">
-                                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                    <button
-                                        class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition">
-                                        {{ __('Normatividad') }}
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </x-slot>
-                    <x-slot name="content">
-
-                        <div class="block px-4 py-2 text-xs text-gray-400">
-                            {{ __('Normatividad') }}
-                        </div>
-
-                        <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                            {{ __('Ley') }}
-                        </x-jet-dropdown-link>
-                        <div class="border-t border-gray-100"></div>
-                        <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                            {{ __('Decretos') }}
-                        </x-jet-dropdown-link>
-                        <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                            {{ __('Politica y Lineamientos') }}
-                        </x-jet-dropdown-link>
-
-                    </x-slot>
-                </x-jet-dropdown>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('normatividad') }}" :active="request()->routeIs('normatividad')">
+                        {{ __('Normatividad') }}
+                    </x-jet-nav-link>
+                </div>
 
                 <x-jet-dropdown>
                     <x-slot name="trigger">
@@ -75,9 +48,6 @@
                         <div class="border-t border-gray-100"></div>
                         <x-jet-dropdown-link href="{{ route('profile.show') }}">
                             {{ __('Entes de Control') }}
-                        </x-jet-dropdown-link>
-                        <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                            {{ __('Presupuesto') }}
                         </x-jet-dropdown-link>
 
                     </x-slot>
@@ -108,32 +78,6 @@
                         <div class="border-t border-gray-100"></div>
                         <x-jet-dropdown-link href="{{ route('vias.index') }}">
                             {{ __('Inventario Vial') }}
-                        </x-jet-dropdown-link>
-
-                    </x-slot>
-                </x-jet-dropdown>
-
-                <x-jet-dropdown>
-                    <x-slot name="trigger">
-                        <div class="flex justify-between h-16">
-                            <div class="flex">
-                                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                    <button
-                                        class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition">
-                                        {{ __('Contratación') }}
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </x-slot>
-                    <x-slot name="content">
-
-                        <div class="block px-4 py-2 text-xs text-gray-400">
-                            {{ __('Contratación') }}
-                        </div>
-
-                        <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                            {{ __('Contratos Aprovados') }}
                         </x-jet-dropdown-link>
 
                     </x-slot>

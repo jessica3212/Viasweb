@@ -15,6 +15,10 @@ Route::get('acercade', function () {
     return view('acercade');
 })->name('acercade');
 
+Route::get('normatividad', function () {
+    return view('normatividad');
+})->name('normatividad');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/inicio', function () {
     return view('dashboard');
 })->name('dashboard');
