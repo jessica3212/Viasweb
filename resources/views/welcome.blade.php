@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center">
-            <img class="h-20" src="{{ asset('img/INVÍAS_Colombia_logo.png') }}">
+            <img class="h-20" src="{{ asset('img/Secretarias 2017-05-obras.jpg') }}">
             <img class="h-20 ml-6" src="{{ asset('img/logo2-cas.png') }}">
             <img class="h-20 ml-6" src="{{ asset('img/significado-del-escudo-de-colombia.png') }}">
             <h1 class=" ml-6 text-lg text-gray-500 leading-7 font-semibold uppercase">Secretaria de Infrastructura</h1>
 
             <div class=" ml-auto">
                 <fieldset class="w-full space-y-1 text-black ">
-                    <label for="Search" class="hidden">Search</label>
+                    <label for="Search" class="hidden">Buscar</label>
                     <div class="relative">
                         <span class="absolute inset-y-0 left-0 flex items-center pl-2">
                             <button type="button" title="search" class="p-1 focus:outline-none focus:ring">
@@ -17,7 +17,7 @@
                                 </svg>
                             </button>
                         </span>
-                        <input type="search" name="Search" placeholder="Search..." class="w-32 py-2 pl-10 text-sm rounded-md sm:w-auto focus:outline-none bg-gray-100 text-gray-500 focus:bg-gray-200 focus:border-indigo-400">
+                        <input type="search" name="Search" placeholder="Buscar..." class="w-32 py-2 pl-10 text-sm rounded-md sm:w-auto focus:outline-none bg-gray-100 text-gray-500 focus:bg-gray-200 focus:border-indigo-400">
                     </div>
                 </fieldset>
             </div>
@@ -32,40 +32,39 @@
                 
                 
                 <div class="space-y-12 dark:bg-coolGray-800 dark:text-coolGray-100">
+
+                    <section>
+                        <img class="shadow-xl" src="{{ asset('img/Imagen_inicio.jpg') }}" alt="">
+                    </section>
         
                     <section>
                         <div class="container max-w-6xl p-6 space-y-6 sm:space-y-12">
-                            <a href="#" class="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-coolGray-900">
-                                <img src="https://source.unsplash.com/random/480x360" alt="Website Design System" class="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 dark:bg-coolGray-500">
-                                <div class="p-6 space-y-2 lg:col-span-5">
-                                    <h3 class="text-2xl font-semibold sm:text-4xl group-hover:underline group-focus:underline">Noster tincidunt reprimique ad pro</h3>
-                                    <span class="text-xs dark:text-coolGray-400">February 19, 2021</span>
-                                    <p>Ei delenit sensibus liberavisse pri. Quod suscipit no nam. Est in graece fuisset, eos affert putent doctus id.</p>
-                                </div>
-                            </a>
+                           
                             <div class="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                                 <a href="#" class="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-coolGray-900">
-                                    <img role="presentation" class="object-cover w-full rounded h-44 dark:bg-coolGray-500" src="https://source.unsplash.com/random/481x361">
+                                    <img role="presentation" class="object-cover w-full rounded h-44 dark:bg-coolGray-500" src="{{ asset('img/Oscar Eduardo.jpg') }}">
                                     <div class="p-6 space-y-2">
-                                        <h3 class="text-2xl font-semibold group-hover:underline group-focus:underline">In usu laoreet repudiare legendos</h3>
-                                        <span class="text-xs dark:text-coolGray-400">January 21, 2021</span>
-                                        <p>Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.</p>
+                                        <h3 class="text-2xl font-semibold group-hover:underline group-focus:underline">Oscar Eduardo García</h3>
+                                        <span class="text-xs dark:text-coolGray-400">Despacho secretaria de infraestructura</span>
+                                        <p class="text-justify">Oriundo de Villanueva, ingeniero sanitario y ambiental de la universidad de Boyacá, especialista en  gerencia de proyectos de la universidad de Boyacá. Fue Director de los sistemas de acueducto, alcantarillado y aseo de la empresa de servicios públicos de Villanueva ESPAVI SA ESP, Gerente general de la empresa CENTALS SAS ESP, Subgerente técnico y operativo de la empresa departamental de aguas Acuatodos y coordinador y supervisor de proyectos de Construinter sas.</p>
                                     </div>
                                 </a>
                                 <a href="#" class="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-coolGray-900">
-                                    <img role="presentation" class="object-cover w-full rounded h-44 dark:bg-coolGray-500" src="https://source.unsplash.com/random/482x362">
+                                    <img role="presentation" class="object-cover w-full rounded h-44 dark:bg-coolGray-500" src="{{ asset('img/zulma.jpg') }}">
                                     <div class="p-6 space-y-2">
-                                        <h3 class="text-2xl font-semibold group-hover:underline group-focus:underline">In usu laoreet repudiare legendos</h3>
-                                        <span class="text-xs dark:text-coolGray-400">January 22, 2021</span>
-                                        <p>Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.</p>
+                                        <h3 class="text-2xl font-semibold group-hover:underline group-focus:underline">Sulma Oriana López Castellanos</h3>
+                                        <span class="text-xs dark:text-coolGray-400">Dirección de programación</span>
+                                        <p class="text-justify">Ingeniera Civil egresada de la Universidad Pedagógica y Tecnológica de Colombia, Especialista en Gerencia de Empresas de la Universidad del Rosario,
+                                            Con 12 años de experiencias en instituciones públicas y privadas,  tiene a su cargo dirigir la Oficina de Programación de la Secretaria de Obras Públicas y Transportes de Casanare; cuya labor es   contribuir con su experiencia y profesionalismo en fortalecer técnicamente las iniciativas de inversión presentadas por los municipios y comunidades del Departamento de Casanare, en  agilizar los procesos de viabilización de proyectos presentados en ésta dependencia y en atender las solicitudes de las comunidades de manera oportuna y eficaz.
+                                            </p>
                                     </div>
                                 </a>
                                 <a href="#" class="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-coolGray-900">
-                                    <img role="presentation" class="object-cover w-full rounded h-44 dark:bg-coolGray-500" src="https://source.unsplash.com/random/483x363">
+                                    <img role="presentation" class="object-cover w-full rounded h-44 dark:bg-coolGray-500" src="{{ asset('img/BRENDA.jpeg') }}">
                                     <div class="p-6 space-y-2">
-                                        <h3 class="text-2xl font-semibold group-hover:underline group-focus:underline">In usu laoreet repudiare legendos</h3>
-                                        <span class="text-xs dark:text-coolGray-400">January 23, 2021</span>
-                                        <p>Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.</p>
+                                        <h3 class="text-2xl font-semibold group-hover:underline group-focus:underline">Brenda Roraima Barrera</h3>
+                                        <span class="text-xs dark:text-coolGray-400">Dirección de construcciones</span>
+                                        <p class="text-justify">Egresada de la Universidad Agraria de Colombia UNIAGRARIA, especialista en Gerencia de Proyectos de la Fundación Universitaria de Boyacá UNIBOYACA, con más de 8 años de experiencia en entidades públicas y privadas.</p>
                                     </div>
                                 </a>
                                 <a href="#" class="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-coolGray-900 hidden sm:block">

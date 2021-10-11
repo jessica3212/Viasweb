@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-gradient-to-r from-teal-500 to-gray-200 border-b border-gray-100 ">
+<nav x-data="{ open: false }" class="bg-gradient-to-r from-blue-300 to-gray-300 border-b border-gray-100 ">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -102,7 +102,7 @@
                             {{ __('Biblioteca') }}
                         </div>
 
-                        <x-jet-dropdown-link href="">
+                        <x-jet-dropdown-link href="{{ route('plan_vial.index') }}">
                             {{ __('Plan Vial') }}
                         </x-jet-dropdown-link>
                         <div class="border-t border-gray-100"></div>

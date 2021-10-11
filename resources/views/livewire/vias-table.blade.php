@@ -1,10 +1,10 @@
 <div>
-
+    
     <x-slot name="header">
         <div class="flex items-center">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
-                <path d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z">
+                <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7">
                 </path>
             </svg>
             <h2 class="ml-4 text-xl text-gray-800 leading-tight uppercase">
@@ -263,9 +263,9 @@
                     </x-jet-button>
                 </x-slot>
             </x-jet-form-section>
+        </div>
 
-
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mx-8">
 
                 <!-- This example requires Tailwind CSS v2.0+ -->
                 <div class="flex flex-col">

@@ -16,16 +16,14 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div >
-                <div id="map" style=" height: 300px;" class=" rounded-md shadow-sm mb-6"></div>
+                <div id="map" style=" height: 300px;" class=" rounded-md shadow-sm mb-6 shadow-md"></div>
             </div>
 
-            <div class="bg-gradient-to-r from-green-500 to-blue-600 overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-gradient-to-r from-blue-700 to-gray-700 overflow-hidden shadow-xl sm:rounded-lg">
 
 
-                <div
-                    class="flex flex-row justify-center items-center min-h-screen bg-app bg-center bg-no-repeat bg-cover m-6">
-                    <main
-                        class="flex flex-col lg:flex-row bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 rounded-xl overflow-hidden w-full max-w-6xl shadow-lg m-2 lg:m-2">
+                
+                    <main class="flex flex-col lg:flex-row bg-gray-200 backdrop-filter backdrop-blur-md bg-opacity-30 rounded-xl overflow-hidden shadow-lg m-2 lg:m-2">
                         <div class="flex-1 p-4 lg:p-6">
                             <div class="text-lg text-white mb-8 flex items-center">
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -40,7 +38,7 @@
                                 <div
                                     class="rounded-md bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 p-4 flex flex-col relative ">
 
-                                    <div class="text-white text-lg font-medium mb-2 ">Codigo Via</div>
+                                    <div class="text-white text-lg font-semibold mb-2">Codigo Via</div>
                                     <div class="text-white font-normal">{{ $via->codigo_via }}</div>
                                 </div>
                                 <div
@@ -48,26 +46,26 @@
                                     <div class="text-white absolute right-2">
 
                                     </div>
-                                    <div class="text-white text-lg font-medium mb-2">Compentencia</div>
+                                    <div class="text-white text-lg font-semibold mb-2">Compentencia</div>
                                     <div class="text-white font-normal">{{ $via->competencia }}</div>
                                 </div>
                                 <div
                                     class="rounded-md bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 p-4 flex flex-col relative undefined">
 
-                                    <div class="text-white text-lg font-medium mb-2">Responsable</div>
+                                    <div class="text-white text-lg font-semibold mb-2">Responsable</div>
                                     <div class="text-white font-normal">{{ $via->responsable }}</div>
                                 </div>
                                 <div
                                     class="rounded-md bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 p-4 flex flex-col relative undefined">
 
-                                    <div class="text-white text-lg font-medium mb-2">Orden Resolucion</div>
+                                    <div class="text-white text-lg font-semibold mb-2">Orden Resolucion</div>
                                     <div class="text-white font-normal">{{ $via->orden_resolucion }}</div>
                                 </div>
 
                                 <div
                                     class="rounded-md bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 p-4 flex flex-col relative ">
 
-                                    <div class="text-white text-lg font-medium mb-2 ">Longitud</div>
+                                    <div class="text-white text-lg font-semibold mb-2 ">Longitud</div>
                                     <div class="text-white font-normal">{{ $via->longitud }}</div>
                                 </div>
                                 <div
@@ -75,20 +73,20 @@
                                     <div class="text-white absolute right-2">
 
                                     </div>
-                                    <div class="text-white text-lg font-medium mb-2">Ancho Promedio</div>
+                                    <div class="text-white text-lg font-semibold mb-2">Ancho Promedio</div>
                                     <div class="text-white font-normal">{{ $via->ancho_prom }}</div>
                                 </div>
                                 <div
                                     class="rounded-md bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 p-4 flex flex-col relative undefined">
 
-                                    <div class="text-white text-lg font-medium mb-2">PR</div>
+                                    <div class="text-white text-lg font-semibold mb-2">PR</div>
                                     <div class="text-white font-normal">Inicio: {{ $via->pr->incial }}</div>
                                     <div class="text-white font-normal">Final: {{ $via->pr->final }}</div>
                                 </div>
                                 <div
                                     class="rounded-md bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 p-4 flex flex-col relative undefined">
 
-                                    <div class="text-white text-lg font-medium mb-2">Ubicación</div>
+                                    <div class="text-white text-lg font-semibold mb-2">Ubicación</div>
                                     <div class="text-white font-normal">Desde: {{ $via->ubicacion->desde }}</div>
                                     <div class="text-white font-normal">Hasta: {{ $via->ubicacion->hasta }}</div>
                                 </div>
@@ -96,7 +94,7 @@
                                 <div
                                     class="rounded-md bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 p-4 flex flex-col relative ">
 
-                                    <div class="text-white text-lg font-medium mb-2 ">Via Pavimentada</div>
+                                    <div class="text-white text-lg font-semibold mb-2 ">Via Pavimentada</div>
                                     <div class="text-white font-normal">Bueno: {{ $via->vias_pavimentada->bueno }}
                                     </div>
                                     <div class="text-white font-normal">Regular:
@@ -107,7 +105,7 @@
                                 <div
                                     class="rounded-md bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 p-4 flex flex-col relative ">
 
-                                    <div class="text-white text-lg font-medium mb-2 ">Via Afirmado</div>
+                                    <div class="text-white text-lg font-semibold mb-2 ">Via Afirmado</div>
                                     <div class="text-white font-normal">Bueno: {{ $via->vias_afirmado->bueno }}
                                     </div>
                                     <div class="text-white font-normal">Regular: {{ $via->vias_afirmado->regular }}
@@ -118,7 +116,7 @@
                                 <div
                                     class="rounded-md bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 p-4 flex flex-col relative ">
 
-                                    <div class="text-white text-lg font-medium mb-2 ">Via Tierra</div>
+                                    <div class="text-white text-lg font-semibold mb-2 ">Via Tierra</div>
                                     <div class="text-white font-normal">Bueno: {{ $via->vias_tierra->bueno }}
                                     </div>
                                     <div class="text-white font-normal">Regular: {{ $via->vias_tierra->regular }}
@@ -129,7 +127,7 @@
                                 <div
                                     class="rounded-md bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 p-4 flex flex-col relative ">
 
-                                    <div class="text-white text-lg font-medium mb-2 ">Via Mejoramientp</div>
+                                    <div class="text-white text-lg font-semibold mb-2 ">Via Mejoramientp</div>
                                     <div class="text-white font-normal">Bueno: {{ $via->vias_mejoramiento->bueno }}
                                     </div>
                                     <div class="text-white font-normal">Regular:
@@ -145,7 +143,7 @@
                                 <div
                                     class="rounded-md bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 p-4 flex flex-col relative ">
 
-                                    <div class="text-white text-lg font-medium mb-2 ">Incio</div>
+                                    <div class="text-white text-lg font-semibold mb-2 ">Incio</div>
                                     <div class="text-white font-normal">Longitud: {{ $via->vias_inicio->longitud }}
                                     </div>
                                     <div class="text-white font-normal">Lalitud: {{ $via->vias_inicio->latitud }}</div>
@@ -155,7 +153,7 @@
                                 <div
                                     class="rounded-md bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 p-4 flex flex-col relative ">
 
-                                    <div class="text-white text-lg font-medium mb-2 ">Fin</div>
+                                    <div class="text-white text-lg font-semibold mb-2 ">Fin</div>
 
                                     <div class="text-white font-normal">Longitud: {{ $via->vias_fin->longitud }}</div>
                                     <div class="text-white font-normal">Latitud: {{ $via->vias_fin->latitud }}</div>
@@ -166,7 +164,7 @@
                             </div>
                         </div>
                     </main>
-                </div>
+                
 
                 
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PlanVial;
 use App\Http\Controllers\ViaController;
 use App\Http\Livewire\ProjectComponent;
 use App\Http\Livewire\ShowVia;
@@ -14,11 +15,13 @@ Route::get('acercade', function () {
     return view('acercade');
 })->name('acercade');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/inicio', function () {
     return view('dashboard');
 })->name('dashboard');
 
 
 Route::resource('biblioteca/vias', ViaController::class)->names('vias');
+
+Route::resource('biblioteca/plan_vial', PlanVial::class)->names('plan_vial');
 
 Route::get('proyectos', ProjectComponent::class)->name('proyectos');

@@ -3,7 +3,7 @@
         <div class="flex items-center">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
-                <path d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z">
+                <path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
                 </path>
             </svg>
             <h2 class="ml-4 text-xl text-gray-800 leading-tight uppercase">
@@ -11,9 +11,6 @@
             </h2>
         </div>
     </x-slot>
-
-
-
 
     <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -79,12 +76,10 @@
 
                         <fieldset class="w-full space-y-1 text-gray-100">
                             <div class="flex">
-                                <input type="file" name="files" id="files"
-                                    class="px-8 py-12 border-2 border-dashed rounded-md border-gray-700 text-gray-400 bg-gray-100 w-full">
+                                <input twire:model="createForm.document" accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.pdf" type="file" name="file" id="file"
+                                    class="px-8 py-12 border-2 border-dashed rounded-md border-gray-400 text-gray-400 bg-gray-100 w-full">
                             </div>
                         </fieldset>
-
-                        <x-jet-input-error for="createForm.image" />
                     </div>
 
                 </x-slot>
@@ -131,11 +126,17 @@
                                     <tbody class="bg-white divide-y divide-gray-200">
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                asdfadsfs
+                                                Proyecto 1
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-gray-500">Bueno:
-                                                    asdfsdaf</div>
+                                                <div class="text-sm text-gray-500">
+                                                    Via 1</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                Aprobado
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                Descarga
                                             </td>
                                         </tr>
                                     </tbody>
