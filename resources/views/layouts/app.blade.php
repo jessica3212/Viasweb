@@ -15,11 +15,13 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     {{-- LeafLet --}}
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
 
     @livewireStyles
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
+
 </head>
 
 <body class="font-sans antialiased">
@@ -30,8 +32,8 @@
 
         <!-- Page Heading -->
         @if (isset($header))
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <header class="bg-gradient-to-r from-white to-gray-200 shadow">
+                <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8">
                     {{ $header }}
                 </div>
             </header>

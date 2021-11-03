@@ -15,15 +15,10 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div >
-                <div id="map" style=" height: 300px;" class=" rounded-md shadow-sm mb-6 shadow-md"></div>
-            </div>
-
-            <div class="bg-gradient-to-r from-blue-700 to-gray-700 overflow-hidden shadow-xl sm:rounded-lg">
 
 
                 
-                    <main class="flex flex-col lg:flex-row bg-gray-200 backdrop-filter backdrop-blur-md bg-opacity-30 rounded-xl overflow-hidden shadow-lg m-2 lg:m-2">
+                    <main class="flex flex-col lg:flex-row bg-gray-800 backdrop-filter backdrop-blur-md bg-opacity-40 rounded-xl overflow-hidden shadow-lg m-2 lg:m-2">
                         <div class="flex-1 p-4 lg:p-6">
                             <div class="text-lg text-white mb-8 flex items-center">
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -168,8 +163,11 @@
 
                 
 
-            </div>
+           
 
+            <div>
+                <div id="map" style=" height: 400px;" class=" rounded-md mt-6 shadow-md"></div>
+            </div>
             
         </div>
     </div>

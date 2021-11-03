@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PlanVial;
+use App\Http\Controllers\QgisController;
 use App\Http\Controllers\ViaController;
 use App\Http\Livewire\ProjectComponent;
 use App\Http\Livewire\ShowVia;
@@ -27,5 +28,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/inicio', function () {
 Route::resource('biblioteca/vias', ViaController::class)->names('vias');
 
 Route::resource('biblioteca/plan_vial', PlanVial::class)->names('plan_vial');
+
+Route::resource('biblioteca/GIS', QgisController::class)->names('GIS');
 
 Route::get('proyectos', ProjectComponent::class)->name('proyectos');

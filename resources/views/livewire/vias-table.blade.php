@@ -1,21 +1,23 @@
-<div>
+<div x-data="{ expanded: false }">
     
-    <x-slot name="header">
-        <div class="flex items-center">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
-                <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7">
-                </path>
-            </svg>
-            <h2 class="ml-4 text-xl text-gray-800 leading-tight uppercase">
-                Inventario Vial
-            </h2>
+    <header class="bg-gradient-to-r from-white to-gray-200 shadow">
+        <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
+                    <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7">
+                    </path>
+                </svg>
+                <div class="ml-4 text-lg text-gray-500 leading-tight uppercase">Inventario Vial</div>
+                <button @click="expanded = ! expanded" class="text-center text-white bg-indigo-700 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg ml-auto">Formulario</button>
+            </div>
         </div>
-    </x-slot>
+    </header>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-         
+
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8" x-show="expanded" x-collapse.duration.900ms>
+            
             <x-jet-form-section submit="save" class="mb-6">
                 <x-slot name="title">
                     FORMULARIO PARA INVENTARIO
@@ -404,4 +406,4 @@
             </div>
         </div>
     </div>
-</div>
+
