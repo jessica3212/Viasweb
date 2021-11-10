@@ -43,6 +43,7 @@
         <main>
             {{ $slot }}
         </main>
+        
     </div>
 
     <x-footer />

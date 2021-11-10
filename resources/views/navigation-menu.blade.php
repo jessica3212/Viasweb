@@ -4,40 +4,40 @@
       <div class="relative flex items-center justify-between h-16">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
           <!-- Mobile menu button-->
-          <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-            <span class="sr-only">Abrir Menu</span>
+          <button @click="open = ! open"
+            
+                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                    <span class="sr-only">Abrir Menu</span>
+                    <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
 
-            <button @click="open = ! open"
-                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="block h-6 w-6" 
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            
+                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden h-6 w-6" 
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
+                  
             </button>
-    
-          </button>
         </div>
         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex-shrink-0 flex items-center">
 
             <a href="/">
-            <x-jet-application-mark class="block lg:hidden h-8 w-auto" />
+            <x-jet-application-mark class="block lg:hidden h-9 w-auto" />
             </a>
             <a href="/">
-            <x-jet-application-mark class="hidden lg:block h-8 w-auto" />
+            <x-jet-application-mark class="hidden lg:block h-10 w-auto" />
             </a>
 
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
+                
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             
-              <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">Inicio</x-jet-nav-link>
+              <x-jet-nav-link href="/" :active="request()->routeIs('')">Inicio</x-jet-nav-link>
   
-              <x-jet-nav-link href="{{ route('normatividad') }}" :active="request()->routeIs('normatividad')">Norma y Politica</x-jet-nav-link>
+              <x-jet-nav-link href="{{ route('normatividad') }}" :active="request()->routeIs('normatividad')">Informes Ejecutivos</x-jet-nav-link>
 
               <x-jet-dropdown>
                 <x-slot name="trigger">                     

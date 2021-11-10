@@ -23,7 +23,7 @@
     <div class="py-6">
         <div class="mx-auto sm:px-6 lg:px-8">
             <div >
-                <div id="map" class=" rounded-md mb-6 shadow-md" style="height: 700px"></div>
+                <div id="map" class=" rounded-md mb-6 shadow-md" style="height: 700px;"></div>
             </div>
         </div>
     </div>

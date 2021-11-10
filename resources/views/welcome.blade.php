@@ -1,10 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center">
-            <img class="h-20" src="{{ asset('img/Secretarias 2017-05-obras.jpg') }}">
-            <img class="h-20 ml-6" src="{{ asset('img/logo2-cas.png') }}">
-            <img class="h-20 ml-6" src="{{ asset('img/significado-del-escudo-de-colombia.png') }}">
-            <h1 class=" ml-6 text-lg text-gray-500 leading-7 font-semibold uppercase">Secretaria de Infrastructura</h1>
+            <img class="h-20" src="{{ asset('img/logo_secretaria.png') }}">
+            <img class="h-20 ml-6" src="{{ asset('img/map_casanare_color_shadow.png') }}">
+            <h1 class=" ml-6 text-lg text-gray-500 leading-7 uppercase">Secretaria de Infrastructura</h1>
 
             <div class=" ml-auto">
                 <fieldset class="w-full space-y-1 text-black ">
@@ -41,13 +40,13 @@
                     </section>
 
                     <section>
-                        <div class="p-6 space-y-6 sm:space-y-12">
+                        <div class="p-6 space-y-6 sm:space-y-6">
 
                             <div class="grid justify-center grid-cols-1 gap-6 sm:grid-cols-3 lg:grid-cols-4">
                                 <div class="max-w-sm mx-auto">
                                     <img role="presentation" class="object-cover w-full rounded h-44" src="{{ asset('img/Oscar Eduardo.jpg') }}">
                                     <div class="py-6 space-y-2">
-                                        <h3 class="text-2xl font-semibold">Oscar Eduardo García</h3>
+                                        <h3 class="text-xl font-semibold">Oscar Eduardo García</h3>
                                         <span class="text-xs">Despacho secretaria de infraestructura</span>
 
                                             <div x-data="{ expanded: false }">
@@ -67,7 +66,7 @@
                                 <div class="max-w-sm mx-auto">
                                     <img role="presentation" class="object-cover w-full rounded h-44 " src="{{ asset('img/zulma.jpg') }}">
                                     <div class="py-6 space-y-2">
-                                        <h3 class="text-2xl font-semibold">Sulma Oriana López Castellanos</h3>
+                                        <h3 class="text-xl font-semibold">Sulma Oriana López Castellanos</h3>
                                         <span class="text-xs">Dirección de programación</span>
                                         
                                         <div x-data="{ expanded: false }">
@@ -89,12 +88,12 @@
                                     </div>
                                 </div>
                                 <div
-                                    class="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-coolGray-900">
+                                    class="max-w-sm mx-auto group">
                                     <img role="presentation"
-                                        class="object-cover w-full rounded h-44 dark:bg-coolGray-500"
+                                        class="object-cover w-full rounded h-44 "
                                         src="{{ asset('img/BRENDA.jpeg') }}">
                                     <div class="p-6 space-y-2">
-                                        <h3 class="text-2xl font-semibold group-hover:underline group-focus:underline">
+                                        <h3 class="text-xl font-semibold">
                                             Brenda Roraima Barrera</h3>
                                         <span class="text-xs dark:text-coolGray-400">Dirección de construcciones</span>
                                         
@@ -110,14 +109,14 @@
                                     </div>
                                 </div>
                                 <div
-                                    class="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-coolGray-900 hidden sm:block">
+                                    class="max-w-sm mx-auto group">
                                     <img role="presentation"
-                                        class="object-cover w-full rounded h-44 dark:bg-coolGray-500"
-                                        src="https://source.unsplash.com/random/484x364">
+                                        class="object-cover w-full rounded h-44 "
+                                        src="{{ asset('img/jose.jpeg') }}">
                                     <div class="p-6 space-y-2">
-                                        <h3 class="text-2xl font-semibold group-hover:underline group-focus:underline">
-                                            In usu laoreet repudiare legendos</h3>
-                                        <span class="text-xs dark:text-coolGray-400">January 24, 2021</span>
+                                        <h3 class="text-xl font-semibold">
+                                            Jose Vidal Avendaño Sepulveda</h3>
+                                        <span class="text-xs">Tecnico Director</span>
 
                                           <div x-data="{ expanded: false }">
                                             <button @click="expanded = ! expanded"><span class="py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest mb-2">Ver mas ...</span></button>
