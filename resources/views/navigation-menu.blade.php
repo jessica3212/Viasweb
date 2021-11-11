@@ -32,38 +32,16 @@
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
-                
+
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             
               <x-jet-nav-link href="/" :active="request()->routeIs('')">Inicio</x-jet-nav-link>
   
               <x-jet-nav-link href="{{ route('normatividad') }}" :active="request()->routeIs('normatividad')">Informes Ejecutivos</x-jet-nav-link>
 
-              <x-jet-dropdown>
-                <x-slot name="trigger">                     
-                         
-                    <button
-                        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                        {{ __('Gestion y Control') }}
-                    </button>
-                          
-                </x-slot>
-                <x-slot name="content">
+              <x-jet-nav-link href="{{ route('entidad') }}" :active="request()->routeIs('entidad')">Entidad</x-jet-nav-link>
 
-                    <div class="block px-4 py-2 text-xs text-gray-400">
-                        {{ __('Gestion y Control') }}
-                    </div>
-
-                    <x-jet-dropdown-link href="#">
-                        {{ __('Información') }}
-                    </x-jet-dropdown-link>
-                    <div class="border-t border-gray-100"></div>
-                    <x-jet-dropdown-link href="#">
-                        {{ __('Entes de Control') }}
-                    </x-jet-dropdown-link>
-
-                </x-slot>
-            </x-jet-dropdown>
+             
 
             <x-jet-dropdown>
                 <x-slot name="trigger">
@@ -88,13 +66,15 @@
                         {{ __('Inventario Vial') }}
                     </x-jet-dropdown-link>
                     <x-jet-dropdown-link href="{{ route('GIS.index') }}">
-                        {{ __('MAPA VIAL') }}
+                        {{ __('Mapa Vial y Señalización') }}
                     </x-jet-dropdown-link>
 
                 </x-slot>
             </x-jet-dropdown>
 
             <x-jet-nav-link href="{{ route('proyectos') }}" :active="request()->routeIs('proyectos')">Banco de Proyectos</x-jet-nav-link>
+
+            <x-jet-nav-link href="{{ route('maquinaria') }}" :active="request()->routeIs('maquinaria')">Banco de Maquinaria</x-jet-nav-link>
   
             <x-jet-nav-link href="{{ route('acercade') }}" :active="request()->routeIs('acercade')">Acerca De</x-jet-nav-link>
   

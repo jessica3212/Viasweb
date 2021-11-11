@@ -16,6 +16,10 @@
     {{-- LeafLet --}}
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    {{-- FontAwesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    {{-- sweetalert2 --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     @livewireStyles
 
@@ -51,9 +55,20 @@
 
     @stack('modals')
 
+    @livewireScripts
+
     @stack('script')
 
-    @livewireScripts
+    <script>
+        Livewire.on('errorSize', mensaje => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: mensaje,
+            })
+        });
+    </script>
+    
 </body>
 
 </html>

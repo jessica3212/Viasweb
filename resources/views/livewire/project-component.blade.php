@@ -30,56 +30,63 @@
                         <x-jet-label>
                             NOMBRE
                         </x-jet-label>
-                        <x-jet-input type="text" class="w-full" />
-                        <x-jet-input-error for="createForm.nombre_via" />
+                        <x-jet-input type="text" wire:model="createForm.nombre" class="w-full" />
+                        <x-jet-input-error for="createForm.nombre" />
+                        
                     </div>
 
                     <div class="col-span-6 sm:col-span-3">
                         <x-jet-label>
                             TIPO
                         </x-jet-label>
-                        <x-jet-input type="radio" name="type" class="my-3" />
+                        <x-jet-input type="radio" wire:model="createForm.tipo" name="type" value="1" class="my-3" />
                         Proyecto
-                        <x-jet-input type="radio" name="type" class="my-3 ml-6" />
+                        <x-jet-input type="radio" wire:model="createForm.tipo" name="type" value="2" class="my-3 ml-6" />
                         Contrato
+                        <x-jet-input-error for="createForm.tipo" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-6">
                         <x-jet-label>
                             ESTADO
                         </x-jet-label>
-                        <x-jet-input type="radio" name="estado" class="my-3" />
+                        <x-jet-input type="radio" wire:model="createForm.estado" name="estado" value="1" class="my-3" />
                         Pendiente
-                        <x-jet-input type="radio" name="estado" class="my-3 ml-6" />
+                        <x-jet-input type="radio" wire:model="createForm.estado" name="estado" value="2" class="my-3 ml-6" />
                         Aprobado
-                        <x-jet-input type="radio" name="estado" class="my-3 ml-6" />
+                        <x-jet-input type="radio" wire:model="createForm.estado" name="estado" value="3" class="my-3 ml-6" />
                         Desaprobado
+                        <x-jet-input-error for="createForm.estado" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-3">
                         <x-jet-label>
                             VIA
                         </x-jet-label>
-                        <select
-                            class="w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-                            wire:model="category_id">
-                            <option value="" selected disabled>Seleccione una categoría</option>
+                        
+                        <select wire:model="createForm.via_id"
+                            class="w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
 
-                            <option value="1">Via 1</option>
-                            {{-- @foreach ($vias as $via)
-                            <option value="{{ $via->id }}">{{ $via->nombre_via }}</option>
-                            @endforeach --}}
+                            <option value="" selected disabled>Seleccione una Via</option>
+
+                            @foreach ($vias as $via)
+                            <option value="{{ $via->id }}">{{ $via->codigo_via }}</option>
+                            @endforeach
+
                         </select>
+                        
+                        <x-jet-input-error for="createForm.via_id" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-4">
 
-                        <fieldset class="w-full space-y-1 text-gray-100">
-                            <div class="flex">
-                                <input twire:model="createForm.document" accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.pdf" type="file" name="file" id="file"
+                        
+                            
+                                <input wire:model="createForm.url_file" accept=".doc,.docx,.pdf" type="file" id="{{ $rand }}"
                                     class="px-8 py-12 border-2 border-dashed rounded-md border-gray-400 text-gray-400 bg-gray-100 w-full">
-                            </div>
-                        </fieldset>
+
+                                    <x-jet-input-error for="createForm.url_file" />
+                           
                     </div>
 
                 </x-slot>
@@ -116,6 +123,10 @@
                                                 class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                                                 Estado
                                             </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                                                Tipo
+                                            </th>
 
                                             <th scope="col"
                                                 class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">
@@ -124,21 +135,55 @@
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
+                                        @foreach ($documentos as $documento)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Proyecto 1
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-gray-500">
-                                                    Via 1</div>
+                                               {{ $documento->nombre }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Aprobado
+                                                {{ $documento->via->codigo_via }}
+                                             </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+
+                                               @switch($documento->estado)
+                                                   @case(1)
+                                                       Pendiente
+                                                       @break
+                                                   @case(2)
+                                                       Aprobado
+                                                       @break
+                                                   @case(3)
+                                                       Desaprobado
+                                                       @break
+                                                   @default
+                                                        Sin asignar                                                  
+                                               @endswitch
+
                                             </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+
+                                                @switch($documento->tipo)
+                                                    @case(1)                                                    
+                                                        Proyecto                                                  
+                                                        @break
+                                                    @case(2)
+                                                        Contrato
+                                                        @break
+                                                    @default
+                                                        Sin asignar                                                   
+                                                @endswitch
+ 
+                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
-                                                Descarga
+                                                <a href="{{ Storage::url($documento->url_file) }}" download="{{$documento->nombre}}">
+                                                    Descargar Archivo 
+                                                    <i class="ml-2 fas fa-download text-teal-600"></i>
+                                                </a>
                                             </td>
+
                                         </tr>
+                                        @endforeach
+                                        
                                     </tbody>
                                 </table>
                             </div>

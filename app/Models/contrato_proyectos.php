@@ -18,6 +18,10 @@ class contrato_proyectos extends Model
     const PROYECTO=1;
     const CONTRATO=2;
 
-    
+
+    //Relación uno a muchos inversa
+    public function via(){
+        return $this->belongsTo(ViasTable::class);
+    }
 
 }

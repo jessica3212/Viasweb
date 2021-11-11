@@ -26,9 +26,9 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Jeison Diaz',
             'apellido' => 'Camacho',
-            'documento' => '0123456789',
+            'documento' => '456546987',
             'email' => 'jeison@unisangil.edu.co',
-            'password' => bcrypt('jessica123')
+            'password' => bcrypt('jeison123')
 
         ])->assignRole('Administrador');
     }
