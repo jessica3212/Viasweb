@@ -5,8 +5,9 @@ use App\Http\Controllers\QgisController;
 use App\Http\Controllers\ViaController;
 use App\Http\Livewire\MaquinariaComponent;
 use App\Http\Livewire\ProjectComponent;
-use App\Http\Livewire\ShowVia;
-use App\Http\Livewire\ViasTable;
+
+use App\Http\Livewire\ViaComponent;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -37,5 +38,7 @@ Route::resource('biblioteca/plan_vial', PlanVial::class)->names('plan_vial');
 Route::resource('biblioteca/GIS', QgisController::class)->names('GIS');
 
 Route::get('proyectos', ProjectComponent::class)->name('proyectos');
+
+Route::get('inventario', ViaComponent::class)->name('inventario');
 
 Route::get('maquinaria', MaquinariaComponent::class)->name('maquinaria');

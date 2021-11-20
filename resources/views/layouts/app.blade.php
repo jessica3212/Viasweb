@@ -32,7 +32,12 @@
     <x-jet-banner />
 
     <div class="min-h-screen bg-gray-100">
+        
+        <x-visitas />
+
         @livewire('navigation-menu')
+
+        
 
         <!-- Page Heading -->
         @if (isset($header))
@@ -57,8 +62,6 @@
 
     @livewireScripts
 
-    @stack('script')
-
     <script>
         Livewire.on('errorSize', mensaje => {
             Swal.fire({
@@ -69,6 +72,7 @@
         });
     </script>
     
+    @stack('script')
 </body>
 
 </html>

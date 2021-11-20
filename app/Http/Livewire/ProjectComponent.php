@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\contrato_proyectos;
-use App\Models\ViasTable;
+use App\Models\Via;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -56,7 +56,7 @@ class ProjectComponent extends Component
 
     public function getVias()
     {
-        $this->vias = ViasTable::all();
+        $this->vias = Via::all();
     }
 
     public function save()

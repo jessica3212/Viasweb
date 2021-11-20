@@ -21,7 +21,7 @@ class contrato_proyectos extends Model
 
     //Relación uno a muchos inversa
     public function via(){
-        return $this->belongsTo(ViasTable::class);
+        return $this->belongsTo(Via::class);
     }
 
 }

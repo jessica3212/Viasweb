@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class MaquinariaComponent extends Component
 {
+    
     public $maquinaria, $maquina;
 
     protected $listeners = ['delete'];

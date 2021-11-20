@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ViasTable;
+use App\Models\Via;
 use Illuminate\Http\Request;
 
 class ViaController extends Controller
@@ -44,7 +44,7 @@ class ViaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(ViasTable $via)
+    public function show(Via $via)
     {
         return view('vias.show', compact('via'));
     }

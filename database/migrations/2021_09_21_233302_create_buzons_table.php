@@ -16,6 +16,7 @@ class CreateBuzonsTable extends Migration
     {
         Schema::create('buzons', function (Blueprint $table) {
             $table->id();
+            
             $table->enum('tipo', [buzon::QUEJA,buzon::SUGERENCIA]);
             $table->string('nombre');
             $table->string('descripcion');
