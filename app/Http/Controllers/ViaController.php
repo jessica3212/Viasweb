@@ -55,9 +55,9 @@ class ViaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Via $via)
     {
-        //
+        return view('vias.edit', compact('via'));
     }
 
     /**

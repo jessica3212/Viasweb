@@ -5,10 +5,9 @@ namespace App\Http\Livewire;
 use App\Models\Via;
 use Livewire\Component;
 
-class ViasTable extends Component
+class ViasComponent extends Component
 {
-
-    public $vias, $via; 
+    public $vias, $via;
 
     protected $listeners = ['delete'];
 
@@ -54,51 +53,7 @@ class ViasTable extends Component
 
     ];
 
-    public $editForm = [
-
-        'open' => false,
-
-        'codigo_via' => null, 
-        'competencia' => null,
-        'responsable' => null,
-        'orden_resolucion' => null,
-        'nombre_via' => null,
-        'longitud' => null,
-        'ancho_prom' => null,
-
-        'pr_inicio' => null,
-        'pr_final' => null,
-
-        'ubicacion_desde' => null,
-        'ubicacion_hasta' => null,
-
-        'pav_bueno' => null,
-        'pav_regular' => null,
-        'pav_malo' => null,
-        
-        'afir_bueno' => null,
-        'afir_regular' => null,
-        'afir_malo' => null,
-     
-        'tierra_bueno' => null,
-        'tierra_regular' => null,
-        'tierra_malo' => null,
-    
-        'mej_bueno' => null,
-        'mej_regular' => null,
-        'mej_malo' => null,
-    
-        'inicio_longitud' => null,
-        'inicio_latitud' => null,
-        'inicio_altura' => null,
-
-        'fin_longitud' => null,
-        'fin_latitud' => null,
-        'fin_altura' => null,
-
-    ];
-    
-    protected $rules = [
+    protected $rules = [     
         'createForm.codigo_via' => 'required',
         'createForm.competencia' => 'required',
         'createForm.responsable' => 'required',
@@ -106,7 +61,36 @@ class ViasTable extends Component
         'createForm.nombre_via' => 'required',
         'createForm.longitud' => 'required',
         'createForm.ancho_prom' => 'required',
-       
+
+        'createForm.pr_inicio' => 'required',
+        'createForm.pr_final' => 'required',
+
+        'createForm.ubicacion_desde' => 'required',
+        'createForm.ubicacion_hasta' => 'required',
+
+        'createForm.pav_bueno' => 'required',
+        'createForm.pav_regular' => 'required',
+        'createForm.pav_malo' => 'required',
+        
+        'createForm.afir_bueno' => 'required',
+        'createForm.afir_regular' => 'required',
+        'createForm.afir_malo' => 'required',
+     
+        'createForm.tierra_bueno' => 'required',
+        'createForm.tierra_regular' => 'required',
+        'createForm.tierra_malo' => 'required',
+    
+        'createForm.mej_bueno' => 'required',
+        'createForm.mej_regular' => 'required',
+        'createForm.mej_malo' => 'required',
+    
+        'createForm.inicio_longitud' => 'required',
+        'createForm.inicio_latitud' => 'required',
+        'createForm.inicio_altura' => 'required',
+
+        'createForm.fin_longitud' => 'required',
+        'createForm.fin_latitud' => 'required',
+        'createForm.fin_altura' => 'required',       
     ];
 
     public function mount()
@@ -119,56 +103,15 @@ class ViasTable extends Component
         $this->vias = Via::all();
     }
 
-    public function save()
-    {
+    public function save(){
 
         $this->validate();
 
-        Via::create([
-
-            'codigo_via' => $this->createForm['codigo_via'], 
-            'competencia' => $this->createForm['competencia'],
-            'responsable' => $this->createForm['responsable'],
-            'orden_resolucion' => $this->createForm['orden_resolucion'],
-            'nombre_via' => $this->createForm['nombre_via'],
-            'longitud' => $this->createForm['longitud'],
-            'ancho_prom' => $this->createForm['ancho_prom'],
-
-            'pr_inicio' => $this->createForm['pr_inicio'],
-            'pr_final' => $this->createForm['pr_final'],
-
-            'ubicacion_desde' => $this->createForm['ubicacion_desde'],
-            'ubicacion_hasta' => $this->createForm['ubicacion_hasta'],
-
-            'pav_bueno' => $this->createForm['pav_bueno'],
-            'pav_regular' => $this->createForm['pav_regular'],
-            'pav_malo' => $this->createForm['pav_malo'],
-
-            'afir_bueno' => $this->createForm['afir_bueno'],
-            'afir_regular' => $this->createForm['afir_regular'],
-            'afir_malo' => $this->createForm['afir_malo'],
-
-            'tierra_bueno' => $this->createForm['tierra_bueno'],
-            'tierra_regular' => $this->createForm['tierra_regular'],
-            'tierra_malo' => $this->createForm['tierra_malo'],
-
-            'mej_bueno' => $this->createForm['mej_bueno'],
-            'mej_regular' => $this->createForm['mej_regular'],
-            'mej_malo' => $this->createForm['mej_malo'],
-
-            'inicio_longitud' => $this->createForm['inicio_longitud'],
-            'inicio_latitud' => $this->createForm['inicio_latitud'],
-            'inicio_altura' => $this->createForm['inicio_altura'],
-
-            'fin_longitud' => $this->createForm['fin_longitud'],
-            'fin_latitud' => $this->createForm['fin_latitud'],
-            'fin_altura' => $this->createForm['fin_altura'],
-
-        ]);
-
+        Via::create($this->createForm);
+    
         $this->reset('createForm');
-        $this->getVias();
 
+        $this->getVias();
     }
 
     public function edit(Via $via)
@@ -214,14 +157,13 @@ class ViasTable extends Component
         $this->editForm['fin_longitud'] = $via->fin_longitud;
         $this->editForm['fin_latitud'] = $via->fin_latitud;
         $this->editForm['fin_altura'] = $via->fin_altura;
-    
     }
 
     public function update()
     {
-       $this->via->update($this->editForm);
-       $this->reset('editForm');
-       $this->getVias();
+        $this->via->update($this->editForm);
+        $this->reset('editForm');
+        $this->getVias();
     }
 
     public function delete(Via $via)
@@ -232,7 +174,6 @@ class ViasTable extends Component
 
     public function render()
     {
-        return view('livewire.vias-table');
+        return view('livewire.vias-component');
     }
 }
-

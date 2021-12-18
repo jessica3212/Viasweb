@@ -39,6 +39,5 @@ Route::resource('biblioteca/GIS', QgisController::class)->names('GIS');
 
 Route::get('proyectos', ProjectComponent::class)->name('proyectos');
 
-Route::get('inventario', ViaComponent::class)->name('inventario');
 
 Route::get('maquinaria', MaquinariaComponent::class)->name('maquinaria');

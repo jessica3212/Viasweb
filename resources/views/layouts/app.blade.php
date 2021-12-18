@@ -29,15 +29,12 @@
 </head>
 
 <body class="font-sans antialiased">
-    <x-jet-banner />
 
     <div class="min-h-screen bg-gray-100">
         
         <x-visitas />
 
         @livewire('navigation-menu')
-
-        
 
         <!-- Page Heading -->
         @if (isset($header))
@@ -47,6 +44,8 @@
                 </div>
             </header>
         @endif
+
+        <x-jet-banner />
 
         <!-- Page Content -->
         <main>

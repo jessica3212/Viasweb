@@ -42,7 +42,7 @@
                     <section>
                         <div class="p-6 space-y-6 sm:space-y-6">
 
-                            <div class="grid justify-center grid-cols-1 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+                            <div class="grid justify-center grid-cols-1 gap-6 sm:grid-cols-3 lg:grid-cols-3">
                                 <div class="max-w-sm mx-auto">
                                     <img role="presentation" class="object-cover w-full rounded h-44" src="{{ asset('img/Oscar Eduardo.jpg') }}">
                                     <div class="py-6 space-y-2">
@@ -126,6 +126,25 @@
                                                 Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has
                                             tantas percipit perfecto. At per tempor albucius perfecto, ei probatus
                                             consulatu patrioque mea, ei vocent delicata indoctum pri.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="max-w-sm mx-auto group">
+                                    <img role="presentation"
+                                        class="object-cover w-full rounded h-44 "
+                                        src="{{ asset('img/Hernan.jpg') }}">
+                                    <div class="p-6 space-y-2">
+                                        <h3 class="text-xl font-semibold">
+                                            Hernán Alfonso Vargas Ovejero</h3>
+                                        <span class="text-xs">Ingeniero en Transportes y Vías</span>
+
+                                          <div x-data="{ expanded: false }">
+                                            <button @click="expanded = ! expanded"><span class="py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest mb-2">Ver mas ...</span></button>
+                                         
+                                            <p class="text-justify" x-show="expanded" x-collapse.duration.500ms>
+                                            
+                                                Aguazuleño, Ingeniero en Transportes y Vías de la UPTC, Ingeniero Civil de la Universidad de Costa Rica, especialista en Gerencia de Proyectos de la Universidad de Boyacá. Su mayor experiencia profesional ha sido en el sector privado, como gerente en empresa de Construcción, desarrollando proyectos urbanísticos. En el sector público se desempeñó como secretario de infraestructura del municipio de Aguazul, y como profesional de apoyo en el Departamento Administrativo de Planeación del departamento de Casanare.</p>
                                         </div>
                                     </div>
                                 </div>

@@ -12,12 +12,6 @@
         </div>
     </x-slot>
     
-    @livewire('ficha2')
-    @livewire('ficha3')
-    @livewire('ficha4')
-    @livewire('ficha5')
-    @livewire('ficha6')
-    @livewire('ficha7')
     @livewire('ficha15')
     
 
