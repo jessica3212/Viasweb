@@ -46,7 +46,12 @@ class ViaController extends Controller
      */
     public function show(Via $via)
     {
-        return view('vias.show', compact('via'));
+        if ($via->marcas) {
+            $data = $via->marcas->data;          
+        }else {
+            $data = null;
+        }
+        return view('vias.show', compact('via', 'data'));
     }
 
     /**

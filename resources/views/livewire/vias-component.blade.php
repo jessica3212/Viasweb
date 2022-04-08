@@ -295,10 +295,27 @@
     </div>
 
 
-  <div class="flex flex-col mx-8 my-6">
+  <div class="flex flex-col mx-8 mt-6 pb-6">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                <div class="flex bg-gradient-to-r from-gray-800 to-indigo-700 px-2 py-4 sm:px-5">
+                    <x-jet-input type="text" wire:model="search" class="placeholder:text-slate-400 w-full"
+                        placeholder="Buscar por Codigo | Nombre | Longitud" />
+                    <div>
+                        <select wire:model="perPage"
+                            class="ml-6 border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm"
+                            class="outline-none">
+                            <option value="2">2 por página</option>
+                            <option value="5">5 por página</option>
+                            <option value="10">10 por página</option>
+                            <option value="15">15 por página</option>
+                            <option value="25">25 por página</option>
+                            <option value="50">50 por página</option>
+                            <option value="100">100 por página</option>
+                        </select>
+                    </div>
+                </div>
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gradient-to-r from-gray-800 to-indigo-700 text-white">
                         <tr>
@@ -345,12 +362,21 @@
                         @foreach ($vias as $via)
 
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    <a href="{{ route('vias.show', $via) }}">
-                                        {{ $via->codigo_via }}
-                                    </a>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-teal-600">
+                                    
+                                    <div class="flex justify-around">
+                                        <span class="relative inline-flex rounded-md shadow-sm">
+                                          <a href="{{ route('vias.show', $via) }}" class="inline-flex items-center px-4 py-2 border border-blue-400 text-base leading-6 font-medium rounded-md text-gray-800 bg-white hover:text-blue-700 focus:border-purple-300 transition ease-in-out duration-150">
+                                                {{ $via->codigo_via }}
+                                            </a>
+                                          <span class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
+                                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                                            <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                                          </span>
+                                        </span>
+                                      </div>
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
+                                <td class="px-6 py-4">
                                     <div class="text-sm text-gray-900">{{ $via->nombre_via }}</div>
                                     <div class="text-sm text-gray-500">Responsable:
                                         {{ $via->responsable }}</div>
@@ -432,6 +458,9 @@
                         <!-- More people... -->
                     </tbody>
                 </table>
+                <div class="bg-gray-100 px-4 py-3 border-t border-gray-200 sm:px-6">
+                    {{ $vias->links() }}
+                </div>
             </div>
         </div>
     </div>

@@ -18,7 +18,9 @@ class CreateBuzonsTable extends Migration
             $table->id();
             
             $table->enum('tipo', [buzon::QUEJA,buzon::SUGERENCIA]);
+
             $table->string('nombre');
+            $table->string('email');
             $table->string('descripcion');
 
             $table->unsignedBigInteger('user_id');

@@ -65,9 +65,13 @@
                     <x-jet-dropdown-link href="{{ route('vias.index') }}">
                         {{ __('Inventario Vial') }}
                     </x-jet-dropdown-link>
+                    <x-jet-dropdown-link href="{{ route('signs') }}">
+                        {{ __('Inventario Señalización') }}
+                    </x-jet-dropdown-link>
                     <x-jet-dropdown-link href="{{ route('GIS.index') }}">
                         {{ __('Mapa Vial y Señalización') }}
                     </x-jet-dropdown-link>
+                   
 
                 </x-slot>
             </x-jet-dropdown>

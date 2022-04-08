@@ -128,6 +128,16 @@ var cloudmadeUrl = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
     
         editableLayers.addLayer(layer);
     });
+
+            @foreach($data as $item )
+                var marks = @json($item);
+                var layer = L.geoJSON(JSON.parse(marks)).addTo(map);
+            @endforeach
+    
+       
+        // Adjust map to show the Layer
+        var bounds = layer.getBounds();
+            map.fitBounds(bounds);
 </script>
 @endpush
 

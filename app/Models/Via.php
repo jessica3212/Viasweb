@@ -28,5 +28,17 @@ class Via extends Model
         {
             return 'codigo_via';
         }
+    
+    // Relacion tiene muchas señales
+        public function señales()
+        {
+            return $this->hasMany(Sign::class);
+        }
+
+    // Relacion tiene muchas marcas
+        public function marcas()
+        {
+            return $this->hasOne(Mark::class);
+        }
 
 }

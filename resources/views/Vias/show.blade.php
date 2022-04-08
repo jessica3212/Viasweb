@@ -10,7 +10,10 @@
             <h2 class="ml-4 text-lg text-gray-500 leading-tight uppercase">
                 Via : {{ $via->nombre_via }}
             </h2>
-            <x-button-enlace color="gray" class="ml-auto" href="{{ route('vias.index') }}">
+            <x-button-enlace color="orange" class="ml-auto" href="{{ route('marks', $via) }}">
+                Mapa
+            </x-button-enlace>
+            <x-button-enlace color="gray" class="ml-4" href="{{ route('vias.index') }}">
                 Volver
             </x-button-enlace>
         </div>
@@ -156,6 +159,8 @@
                 </div>
             </main>
 
+            <p class="p-6 text-gray-500">{{$data}}</p>
+
             <div>
                 <div id="map" style=" height: 400px;" class=" rounded-md mt-6 shadow-md"></div>
             </div>
@@ -166,18 +171,67 @@
     @push('script')
 
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
         <script>
-            var mymap = L.map('map').setView([5.597, -72.082], 13);
+            var cloudmadeUrl = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+        cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18}),
+        map = new L.Map('map', {layers: [cloudmade], center: new L.LatLng(5.336726312563761, -72.39572187571952), zoom: 15 });
+    
+    var editableLayers = new L.FeatureGroup();
+    map.addLayer(editableLayers);
 
-            L.tileLayer(
-                'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiamVzc2ljYTMyMTIiLCJhIjoiY2t0eWt5eDE3MGJyZjJ2b3d3MHlwOHByeSJ9.duFqVIZdOzdCjIjVmTIx0A', {
-                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                    maxZoom: 18,
-                    id: 'mapbox/streets-v11',
-                    tileSize: 512,
-                    zoomOffset: -1,
-                    accessToken: 'your.mapbox.access.token'
-                }).addTo(mymap);
+        L.tileLayer(
+            'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: 'Data © <a href="http://osm.org/copyright">OpenStreetMap</a>',
+                maxZoom: 18
+            }).addTo(map);
+        var drawnItems = new L.FeatureGroup();
+        map.addLayer(drawnItems);
+        var drawControl = new L.Control.Draw({
+            position: 'topright',
+            draw: {
+                polygon: {
+                    shapeOptions: {
+                        color: 'purple' //polygons being drawn will be purple color
+                    },
+                    allowIntersection: false,
+                    drawError: {
+                        color: 'orange',
+                        timeout: 1000
+                    },
+                    showArea: true, //the area of the polygon will be displayed as it is drawn.
+                    metric: false,
+                    repeatMode: true
+                },
+                polyline: {
+                    shapeOptions: {
+                        color: 'red'
+                    },
+                },
+                circlemarker: false, //circlemarker type has been disabled.
+                rect: {
+                    shapeOptions: {
+                        color: 'green'
+                    },
+                },
+                circle: false,
+            },
+            edit: {
+                featureGroup: drawnItems
+            }
+        });
+
+        map.addControl(drawControl);
+          //Converting the data
+          var data = @json($data);
+            
+            //Parsing the data and adding the layer to map
+            var layer = L.geoJSON(JSON.parse(data)).addTo(map);
+            // Adjust map to show the Layer
+            var bounds = layer.getBounds();
+            map.fitBounds(bounds);
+
+           
         </script>
 
     @endpush

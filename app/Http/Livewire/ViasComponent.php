@@ -4,10 +4,17 @@ namespace App\Http\Livewire;
 
 use App\Models\Via;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class ViasComponent extends Component
 {
-    public $vias, $via;
+    use WithPagination;
+
+    protected $queryString =['search' => ['except' => '']];
+    public $search = '';
+    public $perPage = '10';
+
+    // public $vias, $via;
 
     protected $listeners = ['delete'];
 
@@ -93,15 +100,15 @@ class ViasComponent extends Component
         'createForm.fin_altura' => 'required',       
     ];
 
-    public function mount()
-    {
-        $this->getVias();
-    }
+    // public function mount()
+    // {
+    //     $this->getVias();
+    // }
 
-    public function getVias()
-    {
-        $this->vias = Via::all();
-    }
+    // public function getVias()
+    // {
+    //     $this->vias = Via::paginate(10)->get();
+    // }
 
     public function save(){
 
@@ -110,70 +117,18 @@ class ViasComponent extends Component
         Via::create($this->createForm);
     
         $this->reset('createForm');
-
-        $this->getVias();
-    }
-
-    public function edit(Via $via)
-    {
-        $this->via = $via;
-
-        $this->editForm['open'] = true;
-
-        $this->editForm['codigo_via'] = $via->codigo_via;
-        $this->editForm['competencia'] = $via->competencia;
-        $this->editForm['responsable'] = $via->responsable;
-        $this->editForm['orden_resolucion'] = $via->orden_resolucion;
-        $this->editForm['nombre_via'] = $via->nombre_via;
-        $this->editForm['longitud'] = $via->longitud;
-        $this->editForm['ancho_prom'] = $via->ancho_prom;
-
-        $this->editForm['pr_inicio'] = $via->pr_inicio;
-        $this->editForm['pr_final'] = $via->pr_final;
-
-        $this->editForm['ubicacion_desde'] = $via->ubicacion_desde;
-        $this->editForm['ubicacion_hasta'] = $via->ubicacion_hasta;
-
-        $this->editForm['pav_bueno'] = $via->pav_bueno;
-        $this->editForm['pav_regular'] = $via->pav_regular;
-        $this->editForm['pav_malo'] = $via->pav_malo;
-
-        $this->editForm['afir_bueno'] = $via->afir_bueno;
-        $this->editForm['afir_regular'] = $via->afir_regular;
-        $this->editForm['afir_malo'] = $via->afir_malo;
-
-        $this->editForm['tierra_bueno'] = $via->tierra_bueno;
-        $this->editForm['tierra_regular'] = $via->tierra_regular;
-        $this->editForm['tierra_malo'] = $via->tierra_malo;
-
-        $this->editForm['mej_bueno'] = $via->mej_bueno;
-        $this->editForm['mej_regular'] = $via->mej_regular;
-        $this->editForm['mej_malo'] = $via->mej_malo;
-
-        $this->editForm['inicio_longitud'] = $via->inicio_longitud;
-        $this->editForm['inicio_latitud'] = $via->inicio_latitud;
-        $this->editForm['inicio_altura'] = $via->inicio_altura;
-
-        $this->editForm['fin_longitud'] = $via->fin_longitud;
-        $this->editForm['fin_latitud'] = $via->fin_latitud;
-        $this->editForm['fin_altura'] = $via->fin_altura;
-    }
-
-    public function update()
-    {
-        $this->via->update($this->editForm);
-        $this->reset('editForm');
-        $this->getVias();
     }
 
     public function delete(Via $via)
     {
         $via->delete();
-        $this->getVias();
     }
 
     public function render()
     {
-        return view('livewire.vias-component');
+        return view('livewire.vias-component', ['vias' => Via::where('codigo_via', 'LIKE', "%{$this->search}%" )
+        ->orWhere('nombre_via', 'LIKE', "%{$this->search}%")->orWhere('longitud', 'LIKE', "%{$this->search}%")
+        ->orderBy('codigo_via')
+        ->paginate($this->perPage)]);
     }
 }
