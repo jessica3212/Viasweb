@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Municipio;
 use App\Models\Via;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,13 +23,13 @@ class ViaFactory extends Factory
             'competencia' => 'Departamento',
             'responsable' => 'CASANARE',
             'orden_resolucion' => 'Segundo',
-            'nombre_via' => $this->faker->sentence(5),
+            'nombre_via' => $this->faker->word(2),
             'longitud' => $this->faker->randomFloat(2, 0, 100),
             'ancho_prom' => $this->faker->randomFloat(2, 0, 100),
             'pr_inicio' => $this->faker->randomFloat(2, 0, 100),
             'pr_final' => $this->faker->randomFloat(2, 0, 100),
-            'ubicacion_desde' => $this->faker->sentence(5),
-            'ubicacion_hasta' => $this->faker->sentence(5),
+            'ubicacion_desde_id' => Municipio::all()->random()->id,
+            'ubicacion_hasta_id' => Municipio::all()->random()->id,
             'pav_bueno' => $this->faker->randomFloat(2, 0, 100),
             'pav_regular' => $this->faker->randomFloat(2, 0, 100),
             'pav_malo' => $this->faker->randomFloat(2, 0, 100),
@@ -46,7 +47,9 @@ class ViaFactory extends Factory
             'inicio_altura' => $this->faker->randomFloat(2, 0, 100),
             'fin_longitud' => $this->faker->randomFloat(2, 0, 100),
             'fin_latitud' => $this->faker->randomFloat(2, 0, 100),
-            'fin_altura' => $this->faker->randomFloat(2, 0, 100),            
+            'fin_altura' => $this->faker->randomFloat(2, 0, 100),
+            'created_at' => $this->faker->dateTimeBetween('-1 years', 'now'),
+            'updated_at' => $this->faker->dateTimeBetween('-1 years', 'now'),           
         ];
     }
 }

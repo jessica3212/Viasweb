@@ -58,19 +58,19 @@
                         {{ __('Biblioteca') }}
                     </div>
 
-                    <x-jet-dropdown-link href="{{ route('plan_vial.index') }}">
+                    {{-- <x-jet-dropdown-link href="{{ route('plan_vial.index') }}">
                         {{ __('Plan Vial') }}
-                    </x-jet-dropdown-link>
+                    </x-jet-dropdown-link> --}}
                     <div class="border-t border-gray-100"></div>
-                    <x-jet-dropdown-link href="{{ route('vias.index') }}">
+                    <x-jet-dropdown-link href="{{ route('inventario.via') }}">
                         {{ __('Inventario Vial') }}
                     </x-jet-dropdown-link>
-                    <x-jet-dropdown-link href="{{ route('signs') }}">
+                    <x-jet-dropdown-link href="{{ route('inventario.signs') }}">
                         {{ __('Inventario Señalización') }}
                     </x-jet-dropdown-link>
-                    <x-jet-dropdown-link href="{{ route('GIS.index') }}">
+                    {{-- <x-jet-dropdown-link href="{{ route('GIS.index') }}">
                         {{ __('Mapa Vial y Señalización') }}
-                    </x-jet-dropdown-link>
+                    </x-jet-dropdown-link> --}}
                    
 
                 </x-slot>

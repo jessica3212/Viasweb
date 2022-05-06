@@ -26,7 +26,7 @@ class CreateSignsTable extends Migration
             $table->string('observaciones');
             $table->json('cordenadas')->nullable();
             $table->unsignedBigInteger('via_id');
-            $table->foreign('via_id')->references('id')->on('vias');
+            $table->foreign('via_id')->references('id')->on('vias')->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -67,7 +67,7 @@
                     <x-jet-label>
                         Longitud (km)
                     </x-jet-label>
-                    <x-jet-input type="number" wire:model="createForm.longitud" class="w-full" />
+                    <x-jet-input type="text" wire:model="createForm.longitud" class="w-full" />
                     <x-jet-input-error for="createForm.longitud" />
                 </div>
 
@@ -167,6 +167,44 @@
                         Desde
                     </x-jet-label>
 
+                    <select wire:model="createForm.ubicacion_desde_id"
+                        class="w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+
+                        <option value="" selected disabled>Seleccione un Municipio</option>
+
+                        @foreach ($municipios as $municipio)
+                            <option value="{{ $municipio->id }}">{{ $municipio->nombre }}</option>
+                        @endforeach
+
+                    </select>
+
+                    <x-jet-input-error for="createForm.ubicacion_desde_id" />
+                </div>
+
+                <div class="col-span-6 sm:col-span-3">
+                    <x-jet-label>
+                        Hasta
+                    </x-jet-label>
+
+                    <select wire:model="createForm.ubicacion_hasta_id"
+                        class="w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+
+                        <option value="" selected disabled>Seleccione un Municipio</option>
+
+                        @foreach ($municipios as $municipio)
+                            <option value="{{ $municipio->id }}">{{ $municipio->nombre }}</option>
+                        @endforeach
+
+                    </select>
+
+                    <x-jet-input-error for="createForm.ubicacion_hasta_id" />
+                </div>
+
+                {{-- <div class="col-span-6 sm:col-span-3">
+                    <x-jet-label>
+                        Desde
+                    </x-jet-label>
+
                     <x-jet-input type="text" wire:model="createForm.ubicacion_desde" class="w-full" />
                     <x-jet-input-error for="createForm.ubicacion_desde" />
 
@@ -177,7 +215,7 @@
                     </x-jet-label>
                     <x-jet-input type="text" wire:model="createForm.ubicacion_hasta" class="w-full" />
                     <x-jet-input-error for="createForm.ubicacion_hasta" />
-                </div>
+                </div> --}}
 
                 <p class="col-span-6 sm:col-span-6 mt-2 text-sm text-gray-800 font-semibold">
                     VÍA PAVIMENTADAS (Km)
@@ -187,21 +225,21 @@
                     <x-jet-label>
                         Bueno
                     </x-jet-label>
-                    <x-jet-input type="number" wire:model="createForm.pav_bueno" class="w-full" />
+                    <x-jet-input type="text" wire:model="createForm.pav_bueno" class="w-full" />
                     <x-jet-input-error for="createForm.pav_bueno" />
                 </div>
                 <div class="col-span-6 sm:col-span-2">
                     <x-jet-label>
                         Regular
                     </x-jet-label>
-                    <x-jet-input type="number" wire:model="createForm.pav_regular" class="w-full" />
+                    <x-jet-input type="text" wire:model="createForm.pav_regular" class="w-full" />
                     <x-jet-input-error for="createForm.pav_regular" />
                 </div>
                 <div class="col-span-6 sm:col-span-2">
                     <x-jet-label>
                         Malo
                     </x-jet-label>
-                    <x-jet-input type="number" wire:model="createForm.pav_malo" class="w-full" />
+                    <x-jet-input type="text" wire:model="createForm.pav_malo" class="w-full" />
                     <x-jet-input-error for="createForm.pav_malo" />
                 </div>
 
@@ -384,12 +422,9 @@
 
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm text-gray-900">Desde:</div>
-                                    <div class="text-sm text-gray-600">{{ $via->ubicacion_desde }}
-                                    </div>
+                                    <div class="text-sm text-gray-600">{{ $via->ubicacion_desde->nombre }}</div>
                                     <div class="text-sm text-gray-900 w-1">Hasta:</div>
-                                    <div class="text-sm text-gray-600 w-1">
-                                        {{ $via->ubicacion_hasta }}
-                                    </div>
+                                    <div class="text-sm text-gray-600 w-1">{{ $via->ubicacion_hasta->nombre }}</div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                     {{ $via->longitud }}

@@ -8,7 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Sign extends Model
 {
     use HasFactory;
-    protected $guarded = ['id', 'created_at', 'updated_at'];
+
+    protected $fillable = [
+        'abscisa',
+        'costado',
+        'descripcion',
+        'estado_tablero',
+        'estado_paral',
+        'dimensiones',
+        'leyenda',
+        'observaciones',
+        'cordenadas',
+        'via_id',
+    ];
+    // protected $guarded = ['id', 'created_at', 'updated_at'];
 
     //Relacion pertenece a via
     public function via()

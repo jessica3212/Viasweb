@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Municipio;
 use App\Models\Via;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -13,6 +14,7 @@ class ViasComponent extends Component
     protected $queryString =['search' => ['except' => '']];
     public $search = '';
     public $perPage = '10';
+    public $municipios;
 
     // public $vias, $via;
 
@@ -21,9 +23,9 @@ class ViasComponent extends Component
     public $createForm = [
 
         'codigo_via' => null, 
-        'competencia' => null,
+        'competencia' => 'Departamento',
         'responsable' => 'Casanare',
-        'orden_resolucion' => null,
+        'orden_resolucion' => 'Segundo',
         'nombre_via' => null,
         'longitud' => null,
         'ancho_prom' => null,
@@ -31,8 +33,8 @@ class ViasComponent extends Component
         'pr_inicio' => null,
         'pr_final' => null,
 
-        'ubicacion_desde' => null,
-        'ubicacion_hasta' => null,
+        'ubicacion_desde_id' => "",
+        'ubicacion_hasta_id' => "",
 
         'pav_bueno' => null,
         'pav_regular' => null,
@@ -66,44 +68,44 @@ class ViasComponent extends Component
         'createForm.responsable' => 'required',
         'createForm.orden_resolucion' => 'required',
         'createForm.nombre_via' => 'required',
-        'createForm.longitud' => 'required',
-        'createForm.ancho_prom' => 'required',
+        'createForm.longitud' => 'required|numeric',
+        'createForm.ancho_prom' => 'required|numeric',
 
-        'createForm.pr_inicio' => 'required',
-        'createForm.pr_final' => 'required',
+        'createForm.pr_inicio' => 'required|numeric',
+        'createForm.pr_final' => 'required|numeric',
 
-        'createForm.ubicacion_desde' => 'required',
-        'createForm.ubicacion_hasta' => 'required',
+        'createForm.ubicacion_desde_id' => 'required',
+        'createForm.ubicacion_hasta_id' => 'required',
 
-        'createForm.pav_bueno' => 'required',
-        'createForm.pav_regular' => 'required',
-        'createForm.pav_malo' => 'required',
+        'createForm.pav_bueno' => 'required|numeric',
+        'createForm.pav_regular' => 'required|numeric',
+        'createForm.pav_malo' => 'required|numeric',
         
-        'createForm.afir_bueno' => 'required',
-        'createForm.afir_regular' => 'required',
-        'createForm.afir_malo' => 'required',
+        'createForm.afir_bueno' => 'required|numeric',
+        'createForm.afir_regular' => 'required|numeric',
+        'createForm.afir_malo' => 'required|numeric',
      
-        'createForm.tierra_bueno' => 'required',
-        'createForm.tierra_regular' => 'required',
-        'createForm.tierra_malo' => 'required',
+        'createForm.tierra_bueno' => 'required|numeric',
+        'createForm.tierra_regular' => 'required|numeric',
+        'createForm.tierra_malo' => 'required|numeric',
     
-        'createForm.mej_bueno' => 'required',
-        'createForm.mej_regular' => 'required',
-        'createForm.mej_malo' => 'required',
+        'createForm.mej_bueno' => 'required|numeric',
+        'createForm.mej_regular' => 'required|numeric',
+        'createForm.mej_malo' => 'required|numeric',
     
-        'createForm.inicio_longitud' => 'required',
-        'createForm.inicio_latitud' => 'required',
-        'createForm.inicio_altura' => 'required',
+        'createForm.inicio_longitud' => 'required|numeric',
+        'createForm.inicio_latitud' => 'required|numeric',
+        'createForm.inicio_altura' => 'required|numeric',
 
-        'createForm.fin_longitud' => 'required',
-        'createForm.fin_latitud' => 'required',
-        'createForm.fin_altura' => 'required',       
+        'createForm.fin_longitud' => 'required|numeric',
+        'createForm.fin_latitud' => 'required|numeric',
+        'createForm.fin_altura' => 'required|numeric',       
     ];
 
-    // public function mount()
-    // {
-    //     $this->getVias();
-    // }
+    public function mount()
+    {
+        $this->municipios = Municipio::all();
+    }
 
     // public function getVias()
     // {
@@ -128,7 +130,7 @@ class ViasComponent extends Component
     {
         return view('livewire.vias-component', ['vias' => Via::where('codigo_via', 'LIKE', "%{$this->search}%" )
         ->orWhere('nombre_via', 'LIKE', "%{$this->search}%")->orWhere('longitud', 'LIKE', "%{$this->search}%")
-        ->orderBy('codigo_via')
+        ->orderByDesc('created_at')
         ->paginate($this->perPage)]);
     }
 }

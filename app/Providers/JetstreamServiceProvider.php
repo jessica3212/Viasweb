@@ -3,8 +3,13 @@
 namespace App\Providers;
 
 use App\Actions\Jetstream\DeleteUser;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Laravel\Fortify\Fortify;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
+use Illuminate\Validation\ValidationException;
 
 class JetstreamServiceProvider extends ServiceProvider
 {
@@ -28,6 +33,17 @@ class JetstreamServiceProvider extends ServiceProvider
         $this->configurePermissions();
 
         Jetstream::deleteUsersUsing(DeleteUser::class);
+
+        Fortify::authenticateUsing(function (Request $request) {
+            $user = User::where('email', $request->email)->first();
+    
+            if ($user && Hash::check($request->password, $user->password)) {
+                if ($user->status == 1) {  // it will return if status == 1
+                    return $user;
+                }
+                throw ValidationException::withMessages(['Estas desactivado temporalmente!']);  
+            }
+        });
     }
 
     /**

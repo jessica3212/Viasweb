@@ -27,7 +27,7 @@ class CreateFicha15Table extends Migration
 
 
             $table->unsignedBigInteger('via_id');
-            $table->foreign('via_id')->references('id')->on('vias');
+            $table->foreign('via_id')->references('id')->on('vias')->onDelete('cascade');
             
             $table->timestamps();
         });

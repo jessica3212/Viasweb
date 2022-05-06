@@ -24,15 +24,6 @@ class ProjectComponent extends Component
         'via_id' => '',
     ];
 
-    // public $editForm=[
-    //     'open' => false,
-    //     'nombre' => null,
-    //     'url_file' => null,
-    //     'estado' => null,
-    //     'tipo' => null,
-    //     'via_id' => null,
-    // ];
-
     public $rules=[
         'createForm.nombre' => 'required',
         'createForm.url_file' => 'required|file|max:2048',
@@ -79,39 +70,14 @@ class ProjectComponent extends Component
 
         $this->getDocumentos();
     }
-
-    // public function edit(contrato_proyectos $documento)
-    // {
-    //     $this->maquina = $maquina;
-    //     $this->editForm['open'] = true;
-    //     $this->editForm['municipio'] = $maquina->municipio;
-    //     $this->editForm['tramo'] = $maquina->tramo;
-    //     $this->editForm['afirmado'] = $maquina->afirmado;
-    //     $this->editForm['pavimentada'] = $maquina->pavimentada;
-    //     $this->editForm['terciarias'] = $maquina->terciarias;
-    // }
-
-    // public function update()
-    // {
-    //    $this->validate([
-    //     'editForm.municipio' => 'required',
-    //     'editForm.tramo' => 'required',
-    //     'editForm.afirmado' => 'required',
-    //     'editForm.pavimentada' => 'required',
-    //     'editForm.terciarias' => 'required',
-    //    ]); 
-
-    //    $this->maquina->update($this->editForm);
-    //    $this->reset('editForm');
-    //    $this->getMaquinaria();
-    // }
-
-    // public function delete(Maquinaria $maquina)
-    // {
-    //     $maquina->delete();
-    //     $this->getMaquinaria();
-    // }
     
+    public function delete($id)
+    {
+        $documento = contrato_proyectos::find($id);
+        Storage::delete($documento->url_file);
+        $documento->delete();
+        $this->getDocumentos();
+    }
     
     public function render()
     {

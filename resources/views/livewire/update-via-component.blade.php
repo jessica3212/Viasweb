@@ -67,7 +67,7 @@
                         <x-jet-label>
                             Longitud (km)
                         </x-jet-label>
-                        <x-jet-input type="number" wire:model="editForm.longitud" class="w-full" />
+                        <x-jet-input type="text" wire:model="editForm.longitud" class="w-full" />
                         <x-jet-input-error for="editForm.longitud" />
                     </div>
     
@@ -161,8 +161,46 @@
                     <p class="col-span-6 sm:col-span-6 mt-2 text-sm text-gray-800 font-semibold">
                         MUNICIPIOS
                     </p>
+
+                    <div class="col-span-6 sm:col-span-3">
+                        <x-jet-label>
+                            Desde
+                        </x-jet-label>
+    
+                        <select wire:model="editForm.ubicacion_desde_id"
+                            class="w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+    
+                            <option value="" selected disabled>Seleccione un Municipio</option>
+    
+                            @foreach ($municipios as $municipio)
+                                <option value="{{ $municipio->id }}">{{ $municipio->nombre }}</option>
+                            @endforeach
+    
+                        </select>
+    
+                        <x-jet-input-error for="editForm.ubicacion_desde_id" />
+                    </div>
     
                     <div class="col-span-6 sm:col-span-3">
+                        <x-jet-label>
+                            Hasta
+                        </x-jet-label>
+    
+                        <select wire:model="editForm.ubicacion_hasta_id"
+                            class="w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+    
+                            <option value="" selected disabled>Seleccione un Municipio</option>
+    
+                            @foreach ($municipios as $municipio)
+                                <option value="{{ $municipio->id }}">{{ $municipio->nombre }}</option>
+                            @endforeach
+    
+                        </select>
+    
+                        <x-jet-input-error for="editForm.ubicacion_hasta_id" />
+                    </div>
+    
+                    {{-- <div class="col-span-6 sm:col-span-3">
                         <x-jet-label>
                             Desde
                         </x-jet-label>
@@ -177,7 +215,7 @@
                         </x-jet-label>
                         <x-jet-input type="text" wire:model="editForm.ubicacion_hasta" class="w-full" />
                         <x-jet-input-error for="editForm.ubicacion_hasta" />
-                    </div>
+                    </div> --}}
     
                     <p class="col-span-6 sm:col-span-6 mt-2 text-sm text-gray-800 font-semibold">
                         VÍA PAVIMENTADAS (Km)
@@ -187,21 +225,21 @@
                         <x-jet-label>
                             Bueno
                         </x-jet-label>
-                        <x-jet-input type="number" wire:model="editForm.pav_bueno" class="w-full" />
+                        <x-jet-input type="text" wire:model="editForm.pav_bueno" class="w-full" />
                         <x-jet-input-error for="editForm.pav_bueno" />
                     </div>
                     <div class="col-span-6 sm:col-span-2">
                         <x-jet-label>
                             Regular
                         </x-jet-label>
-                        <x-jet-input type="number" wire:model="editForm.pav_regular" class="w-full" />
+                        <x-jet-input type="text" wire:model="editForm.pav_regular" class="w-full" />
                         <x-jet-input-error for="editForm.pav_regular" />
                     </div>
                     <div class="col-span-6 sm:col-span-2">
                         <x-jet-label>
                             Malo
                         </x-jet-label>
-                        <x-jet-input type="number" wire:model="editForm.pav_malo" class="w-full" />
+                        <x-jet-input type="text" wire:model="editForm.pav_malo" class="w-full" />
                         <x-jet-input-error for="editForm.pav_malo" />
                     </div>
     

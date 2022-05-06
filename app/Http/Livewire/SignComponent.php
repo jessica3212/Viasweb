@@ -12,6 +12,7 @@ class SignComponent extends Component
     use WithPagination;
 
     protected $queryString =['search' => ['except' => '']];
+
     public $search = '';
     public $perPage = '10';
     public $vias, $sign;
@@ -74,6 +75,11 @@ class SignComponent extends Component
         ];
     }
 
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
     public function mount(){
         $this->vias = Via::all();
     }
@@ -82,7 +88,10 @@ class SignComponent extends Component
         $this->validate();
         Sign::create($this->createForm);
         $this->reset('createForm');
-        $this->emit('saved');
+        // $this->emit('saved');
+        session()->flash('flash.banner', '¡Señal Agregada!');
+        session()->flash('flash.bannerStyle', 'success');
+        return redirect()->route('signs');
     }
 
     public function edit(Sign $sign){
@@ -105,9 +114,12 @@ class SignComponent extends Component
 
     public function render()
     {
-        return view('livewire.sign-component', ['signs' => Sign::where('abscisa', 'LIKE', "%{$this->search}%")
-        ->orWhere('leyenda', 'LIKE', "%{$this->search}%")->orWhere('descripcion', 'LIKE', "%{$this->search}%")
+        return view('livewire.sign-component', [
+        'signs' => Sign::where('abscisa', 'LIKE', "%{$this->search}%")
+        ->orWhere('leyenda', 'LIKE', "%{$this->search}%")
+        ->orWhere('descripcion', 'LIKE', "%{$this->search}%")
         ->orderByDesc('created_at')
-        ->paginate($this->perPage)]);
+        ->paginate($this->perPage)
+        ]);
     }
 }

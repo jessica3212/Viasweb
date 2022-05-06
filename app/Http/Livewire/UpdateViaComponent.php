@@ -2,12 +2,16 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\ChangeVia;
+use App\Models\Municipio;
 use App\Models\Via;
 use Livewire\Component;
 
 class UpdateViaComponent extends Component
 {
-   public $via;
+    public $via;
+
+    public $municipios;
 
    public $editForm = [
 
@@ -22,8 +26,8 @@ class UpdateViaComponent extends Component
         'pr_inicio' => null,
         'pr_final' => null,
 
-        'ubicacion_desde' => null,
-        'ubicacion_hasta' => null,
+        'ubicacion_desde_id' => null,
+        'ubicacion_hasta_id' => null,
 
         'pav_bueno' => null,
         'pav_regular' => null,
@@ -57,42 +61,43 @@ class UpdateViaComponent extends Component
         'editForm.responsable' => 'required',
         'editForm.orden_resolucion' => 'required',
         'editForm.nombre_via' => 'required',
-        'editForm.longitud' => 'required',
-        'editForm.ancho_prom' => 'required',
+        'editForm.longitud' => 'required|numeric',
+        'editForm.ancho_prom' => 'required|numeric',
 
-        'editForm.pr_inicio' => 'required',
-        'editForm.pr_final' => 'required',
+        'editForm.pr_inicio' => 'required|numeric',
+        'editForm.pr_final' => 'required|numeric',
 
-        'editForm.ubicacion_desde' => 'required',
-        'editForm.ubicacion_hasta' => 'required',
+        'editForm.ubicacion_desde_id' => 'required',
+        'editForm.ubicacion_hasta_id' => 'required',
 
-        'editForm.pav_bueno' => 'required',
-        'editForm.pav_regular' => 'required',
-        'editForm.pav_malo' => 'required',
+        'editForm.pav_bueno' => 'required|numeric',
+        'editForm.pav_regular' => 'required|numeric',
+        'editForm.pav_malo' => 'required|numeric',
         
-        'editForm.afir_bueno' => 'required',
-        'editForm.afir_regular' => 'required',
-        'editForm.afir_malo' => 'required',
+        'editForm.afir_bueno' => 'required|numeric',
+        'editForm.afir_regular' => 'required|numeric',
+        'editForm.afir_malo' => 'required|numeric',
      
-        'editForm.tierra_bueno' => 'required',
-        'editForm.tierra_regular' => 'required',
-        'editForm.tierra_malo' => 'required',
+        'editForm.tierra_bueno' => 'required|numeric',
+        'editForm.tierra_regular' => 'required|numeric',
+        'editForm.tierra_malo' => 'required|numeric',
     
-        'editForm.mej_bueno' => 'required',
-        'editForm.mej_regular' => 'required',
-        'editForm.mej_malo' => 'required',
+        'editForm.mej_bueno' => 'required|numeric',
+        'editForm.mej_regular' => 'required|numeric',
+        'editForm.mej_malo' => 'required|numeric',
     
-        'editForm.inicio_longitud' => 'required',
-        'editForm.inicio_latitud' => 'required',
-        'editForm.inicio_altura' => 'required',
+        'editForm.inicio_longitud' => 'required|numeric',
+        'editForm.inicio_latitud' => 'required|numeric',
+        'editForm.inicio_altura' => 'required|numeric',
 
-        'editForm.fin_longitud' => 'required',
-        'editForm.fin_latitud' => 'required',
-        'editForm.fin_altura' => 'required',       
+        'editForm.fin_longitud' => 'required|numeric',
+        'editForm.fin_latitud' => 'required|numeric',
+        'editForm.fin_altura' => 'required|numeric',       
     ];
 
    public function mount(Via $via)
     {
+        $this->municipios = Municipio::all();
         $this->via = $via;
 
         $this->editForm['codigo_via'] = $via->codigo_via;
@@ -106,8 +111,8 @@ class UpdateViaComponent extends Component
         $this->editForm['pr_inicio'] = $via->pr_inicio;
         $this->editForm['pr_final'] = $via->pr_final;
 
-        $this->editForm['ubicacion_desde'] = $via->ubicacion_desde;
-        $this->editForm['ubicacion_hasta'] = $via->ubicacion_hasta;
+        $this->editForm['ubicacion_desde_id'] = $via->ubicacion_desde_id;
+        $this->editForm['ubicacion_hasta_id'] = $via->ubicacion_hasta_id;
 
         $this->editForm['pav_bueno'] = $via->pav_bueno;
         $this->editForm['pav_regular'] = $via->pav_regular;
@@ -139,6 +144,13 @@ class UpdateViaComponent extends Component
         $this->validate();
 
         $this->via->update($this->editForm);
+
+        $content = json_encode($this->via);
+
+        ChangeVia::create([
+            'content' => $content,
+            'via_id' => $this->via->id,
+        ]);
 
         session()->flash('flash.banner', '¡ la vía se ha modificado correctamente !');
         session()->flash('flash.bannerStyle', 'success');

@@ -51,7 +51,10 @@ class ViaController extends Controller
         }else {
             $data = null;
         }
-        return view('vias.show', compact('via', 'data'));
+
+        $changes = $via->cambios;
+
+        return view('vias.show', compact('via', 'data', 'changes'));
     }
 
     /**

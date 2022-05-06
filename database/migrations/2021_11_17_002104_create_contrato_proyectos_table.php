@@ -23,7 +23,7 @@ class CreateContratoProyectosTable extends Migration
             $table->enum('tipo', [contrato_proyectos::PROYECTO,contrato_proyectos::CONTRATO]);
 
             $table->unsignedBigInteger('via_id');
-            $table->foreign('via_id')->references('id')->on('vias')->onDelete('cascade');
+            $table->foreign('via_id')->references('id')->on('vias')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
         });

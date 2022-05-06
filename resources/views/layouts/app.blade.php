@@ -10,7 +10,7 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
+    @powerGridStyles
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     {{-- LeafLet --}}
@@ -21,16 +21,9 @@
     {{-- sweetalert2 --}}
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
 
     @livewireStyles
+
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
@@ -39,36 +32,47 @@
 
 <body class="font-sans antialiased">
 
-    <div class="min-h-screen bg-gray-100">
+    <div class="flex h-screen text-gray-900 bg-gray-200">
+    
+        @auth
+            <x-aside /> 
+        @endauth
         
-        <x-visitas />
 
-        @livewire('navigation-menu')
+        <div class="flex flex-col flex-1 min-h-screen overflow-x-hidden overflow-y-auto">
 
-        <!-- Page Heading -->
-        @if (isset($header))
-            <header class="bg-gradient-to-r from-white to-gray-200 shadow">
-                <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-        @endif
 
-        <x-jet-banner />
+            <x-visitas />
 
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
+            @livewire('navigation-menu')
+
+            <!-- Page Heading -->
+            @if (isset($header))
+                <header class="bg-gradient-to-r from-white to-gray-200 shadow">
+                    <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endif
+
+            <x-jet-banner />
+
+            <!-- Page Content -->
+            <main>
+                {{ $slot }}
+            </main>
+            <x-footer />
+        </div>
+
+
+
         
-    </div>
 
-    <x-footer />
-
-
+   
     @stack('modals')
 
     @livewireScripts
+    @powerGridScripts
 
     <script>
         Livewire.on('errorSize', mensaje => {
@@ -79,7 +83,7 @@
             })
         });
     </script>
-    
+
     @stack('script')
 </body>
 

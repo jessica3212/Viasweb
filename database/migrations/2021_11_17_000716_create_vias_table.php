@@ -27,9 +27,12 @@ class CreateViasTable extends Migration
 
             $table->double('pr_inicio');
             $table->double('pr_final');
+            
+            $table->unsignedBigInteger('ubicacion_desde_id');
+            $table->foreign('ubicacion_desde_id')->references('id')->on('municipios');
 
-            $table->string('ubicacion_desde');
-            $table->string('ubicacion_hasta');
+            $table->unsignedBigInteger('ubicacion_hasta_id');
+            $table->foreign('ubicacion_hasta_id')->references('id')->on('municipios');
 
             $table->double('pav_bueno');
             $table->double('pav_regular');

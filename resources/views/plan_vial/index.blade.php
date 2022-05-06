@@ -12,7 +12,13 @@
         </div>
     </x-slot>
     
-    @livewire('ficha15')
-    
-
+    {{-- @livewire('ficha15')
+     --}}
+     <div class="py-12">
+        <div class="max-w-max mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4">
+                <livewire:sign-table />
+            </div>
+        </div>
+    </div>
 </x-app-layout>

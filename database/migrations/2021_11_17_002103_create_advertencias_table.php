@@ -20,7 +20,7 @@ class CreateAdvertenciasTable extends Migration
             $table->string('descripcion');
 
             $table->unsignedBigInteger('via_id');
-            $table->foreign('via_id')->references('id')->on('vias');
+            $table->foreign('via_id')->references('id')->on('vias')->onDelete('cascade');
 
             $table->timestamps();
         });

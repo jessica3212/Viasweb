@@ -86,6 +86,23 @@
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                <div class="flex bg-gradient-to-r from-teal-500 to-orange-700 px-2 py-4 sm:px-5">
+                                    <x-jet-input type="text" wire:model="search" class="placeholder:text-slate-400 w-full"
+                                        placeholder="Buscar por Codigo | Nombre | Longitud" />
+                                    <div>
+                                        <select wire:model="perPage"
+                                            class="ml-6 border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm"
+                                            class="outline-none">
+                                            <option value="2">2 por página</option>
+                                            <option value="5">5 por página</option>
+                                            <option value="10">10 por página</option>
+                                            <option value="15">15 por página</option>
+                                            <option value="25">25 por página</option>
+                                            <option value="50">50 por página</option>
+                                            <option value="100">100 por página</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <table class="min-w-full divide-y divide-gray-200">
                                     <thead class="bg-gradient-to-r from-teal-500 to-orange-700 text-white">
                                         <tr>
@@ -130,7 +147,7 @@
                                                 <div class="text-sm text-gray-500">
                                                     {{ $maquina->municipio }}</div>
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            <td class="px-6 py-4 text-sm text-gray-500">
                                                 {{ $maquina->tramo }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
@@ -155,6 +172,9 @@
                                         @endforeach                                      
                                     </tbody>
                                 </table>
+                                <div class="bg-gray-100 px-4 py-3 border-t border-gray-200 sm:px-6">
+                                    {{ $maquinaria->links() }}
+                                </div>
                             </div>
                         </div>
                     </div>

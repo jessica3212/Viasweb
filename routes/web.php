@@ -9,6 +9,7 @@ use App\Http\Livewire\MaquinariaComponent;
 use App\Http\Livewire\MarkComponent;
 use App\Http\Livewire\ProjectComponent;
 use App\Http\Livewire\SignComponent;
+use App\Http\Livewire\UserComponent;
 use App\Http\Livewire\ViaComponent;
 
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/inicio', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::get('/inventario/vial', function () {
+    return view('data-table-via');
+})->name('inventario.via');
+
+Route::get('/inventario/señalizacion', function () {
+    return view('data-table-signs');
+})->name('inventario.signs');
 
 Route::resource('biblioteca/vias', ViaController::class)->names('vias');
 
@@ -51,3 +59,5 @@ Route::get('/{via}/mapeo', MarkComponent::class)->name('marks');
 Route::post('/{via}/save', [MarkController::class, 'save'])->name('mark.save');
 
 Route::get('/{sign}/show', [SignController::class, 'show'])->name('sign.show');
+
+Route::get('/users', UserComponent::class)->name('users');
